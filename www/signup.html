@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport"
+              content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" href="styles/vendor.css">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/brand.css">
+        
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+
+        <title> Signup </title>
+        <style>
+            /*
+                label strong {
+                    text-transform: lowercase !important;
+                    font-size: 12px;
+                }
+                
+            */
+
+            ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+                color: #fff;
+                font-weight: 400;
+                font-size: 14px;
+            }
+
+            :-ms-input-placeholder { /* Internet Explorer 10-11 */
+                color: #fff;
+                font-weight: 400;
+                font-size: 14px;
+            }
+
+            ::-ms-input-placeholder { /* Microsoft Edge */
+                color: #fff;
+                font-weight: 400;
+                font-size: 14px;
+            }
+            input[type=text], input[type=password], input[type=email] {
+                color: #fff;
+                font-weight: 300;
+                font-size: 12px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="screen" style="background-color: rgba(0,0,48,0.7);">
+
+            <div class="navbar"></div>
+            <div class="bodyContent container">
+
+                <div class="col s12">
+
+                    <div class="row input-field">
+                        <select class="form-control browser-default" name="profession" id="prof">
+                            <option>--Choose Specialty--</option>
+                        </select>
+                    </div>
+
+                    <div class="row">
+                        <select class="form-control browser-default" name="profession" id="subprof">
+                            <option>--Choose Sub-Specialty--</option>
+                        </select>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 col-md-6">
+                            <input type="text" name="firstname" value="" class="form-control input-lg validate" placeholder="First Name" id="first"  />                        </div>
+                        <div class="col-xs-6 col-md-6">
+                            <input type="text" name="lastname" value="" class="form-control input-lg validate" placeholder="Last Name" id="last"  />                        </div>
+                    </div>
+
+                    <div class="row col-xs-12 col-md-12">
+                        <input id="address" type="text" class="form-control validate" data-length="120" placeholder="Enter residential address">
+                    </div>
+
+                    <div class="row col-xs-12 col-md-12">
+                        <select id="country" name="country" class="form-control">
+                            <option value="" disabled="disabled" selected="selected">Choose your country</option>
+                            <option value="Nigeria">
+                                Nigeria
+                            </option>
+                        </select>
+                    </div>                    
+
+                    <div class="row col-md-12 col-xs-12">
+                        <select id="state" name="state" class="form-control">
+                            <option value="" disabled="disabled"
+                                    selected="selected">Choose your state
+                            </option>
+                            <option value="1">Abia State</option>
+                            <option value="2">Adamawa State
+                            </option>
+                            <option value="3">Akwa Ibom State</option>
+                            <option value="4">Anambra State</option>
+                            <option value="5">
+                                Bauchi State
+                            </option>
+                            <option value="6">Bayelsa State</option>
+                            <option value="7">Benue State</option>
+                            <option value="8">
+                                Borno State
+                            </option>
+                            <option value="9">Cross River State</option>
+                            <option value="10">Delta State</option>
+                            <option
+                                value="11">Ebonyi State
+                            </option>
+                            <option value="12">Edo State</option>
+                            <option value="13">Ekiti State</option>
+                            <option
+                                value="14">Enugu State
+                            </option>
+                            <option value="15">FCT</option>
+                            <option value="16">Gombe State</option>
+                            <option
+                                value="17">Imo State
+                            </option>
+                            <option value="18">Jigawa State</option>
+                            <option value="19">Kaduna State</option>
+                            <option
+                                value="20">Kano State
+                            </option>
+                            <option value="21">Katsina State</option>
+                            <option value="22">Kebbi State</option>
+                            <option
+                                value="23">Kogi State
+                            </option>
+                            <option value="24">Kwara State</option>
+                            <option value="25">Lagos State</option>
+                            <option
+                                value="26">Nasarawa State
+                            </option>
+                            <option value="27">Niger State</option>
+                            <option value="28">Ogun State</option>
+                            <option
+                                value="29">Ondo State
+                            </option>
+                            <option value="30">Osun State</option>
+                            <option value="31">Oyo State</option>
+                            <option
+                                value="32">Plateau State
+                            </option>
+                            <option value="33">Rivers State</option>
+                            <option value="34">Sokoto State</option>
+                            <option value="35">Taraba State</option>
+                            <option value="36">Yobe State</option>
+                            <option value="37">Zamfara State</option>
+                        </select>
+                    </div>
+
+                    <div class="row col-xs-12 col-md-12">
+                        <input id="city" type="text" class="form-control validate city-auto" placeholder="City">
+                    </div>
+
+
+
+                    <div class="row col-xs-12 col-md-12">
+                        <input id="email" type="email" class="form-control validate" placeholder="Enter email">
+                    </div>                        
+
+
+                    <div class="row col-xs-12 col-md-12">
+                        <input id="uname" type="text" class="form-control validate" placeholder="Enter a username">
+                    </div>
+
+
+                    <div class="row col-md-12 col-xs-12">
+                        <input id="psword" type="password" class="form-control validate" placeholder="Password">
+                    </div>
+
+                    <div class="row col-md-12 col-xs-12">
+                        <input id="cpsword" type="password" class="form-control validate" placeholder="Confirm password">
+                    </div>
+
+
+                    <div class="row col-md-12 col-xs-12">
+                        <button id="regme" class="btn btn-lg btn-info" type="submit" name="action" style="display: block; margin: 0 auto; padding: 10px;"> Submit </button>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <h5 id="page_title" class="white-text">Signup</h5>
+            <div id="logoic"
+                 ></div>
+        </div>
+
+        <script src="js/jquery.js"></script>
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="js/bootstrap.min.js"></script>
+        
+        <script type="text/javascript" src="js/socketio.js"></script>
+
+        <script type="text/javascript" src="js/cordova.js"></script>
+        <script src="scripts/vendor-3822e132e3.js"></script>
+        <script src="scripts/app-37dd468c2c.js"></script>
+
+        <script type="text/javascript" src="js/index.js"></script>
+        
+        
+
+
+        <script>
+
+            $("#chatNow").click(function () {
+                //  window.location.href="./chat.html";
+            });
+
+            $("#down").click(function () {
+                //alert("Insufficient Permission");
+            });
+
+
+            if ('ontouchstart' in window) {
+                var click = 'touchstart';
+            } else {
+                var click = 'click';
+            }
+
+
+            $('div.burger').on(click, function () {
+
+                if (!$(this).hasClass('open')) {
+                    openMenu();
+                } else {
+                    closeMenu();
+                }
+
+            });
+
+
+            $('div.menu ul li a').on(click, function (e) {
+                e.preventDefault();
+                closeMenu();
+            });
+
+
+            function openMenu() {
+
+                $('div.circle').addClass('expand');
+
+                $('div.burger').addClass('open');
+                $('div.x, div.y, div.z').addClass('collapse');
+                $('.menu li').addClass('animate');
+
+                setTimeout(function () {
+                    $('div.y').hide();
+                    $('div.x').addClass('rotate30');
+                    $('div.z').addClass('rotate150');
+                }, 70);
+                setTimeout(function () {
+                    $('div.x').addClass('rotate45');
+                    $('div.z').addClass('rotate135');
+                }, 120);
+
+
+            }
+
+            function closeMenu() {
+
+                $('div.burger').removeClass('open');
+                $('div.x').removeClass('rotate45').addClass('rotate30');
+                $('div.z').removeClass('rotate135').addClass('rotate150');
+                $('div.circle').removeClass('expand');
+                $('.menu li').removeClass('animate');
+
+                setTimeout(function () {
+                    $('div.x').removeClass('rotate30');
+                    $('div.z').removeClass('rotate150');
+                }, 50);
+                setTimeout(function () {
+                    $('div.y').show();
+                    $('div.x, div.y, div.z').removeClass('collapse');
+                }, 70);
+
+            }
+        </script>
+
+    </body>
+</html>

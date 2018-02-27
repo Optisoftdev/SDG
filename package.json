@@ -1,0 +1,17 @@
+{
+  "name": "ng.optisoft.hydroagro",
+  "version": "1.1.7",
+  "displayName": "Hydro-Agro Data",
+  "cordova": {
+    "platforms": [
+      "android"
+    ],
+    "plugins": {
+      "cordova-plugin-whitelist": {}
+    }
+  },
+  "dependencies": {
+    "cordova-android": "^6.2.3",
+    "cordova-plugin-whitelist": "1"
+  }
+}

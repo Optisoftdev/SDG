@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html >
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="styles/bootstrap-reboot.min.css">
+        <link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="styles/bootstrap-grid.min.css">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <!-- <link rel="stylesheet" type="text/css" href="css/brand.css"> -->
+        <script type="text/javascript" src="js/countries.js"></script>
+        <title>No Poverty</title>
+        <style>
+            label strong{
+                text-transform:lowercase !important;
+                font-size:12px;
+            }
+
+            body{
+                background: url('img/innerbg.png') no-repeat fixed;
+            }
+        </style>
+    </head>
+    <body >
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>                        
+                    </button>
+                    <a class="navbar-image" href="#"><img src="img/pluslogo.png"/></a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li><a href="main.html" >Home</a></li>
+                        <li class="active"><a href="agric.html">No Poverty</a></li>
+                        <li><a href="zero_hunger.html">zero Hunger</a></li>
+                        <li><a href="hydro.html" >Clean Water & Sanitation</a></li>
+                        <li><a href="consumption_production.html">Responsible Consumption & Production</a></li>
+                        <li><a id="logout" href="#!">Logout</a></li></ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid" >
+            <div class="row">
+                <div class="col-xs-12">
+
+        <!--            <form id="diagnosis" class="form-group" method="post" action="http://localhost:8081/wofansdg/facts/process.php"> -->
+                    
+                    <form id="diagnosis" class="form-group">
+        
+                        <div  class="row container"><h6>Farmers Profile</h6><hr/></div>
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="date">Date:</label></div>
+                            <div class="col-xs-8">
+                                <input id="date"  name="date" type="text" class="form-control " >
+                            </div> 
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="name">Respondent's Name:</label></div>
+                            <div class="col-xs-8">
+                                <input id="name"  name="fullname" type="text" class="form-control" >
+                            </div> 
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="phone_number">Phone:</label></div>
+                            <div class="col-xs-8">
+                                <input id="phone_number"  name="phone_number" type="text" class="form-control " >
+                            </div> 
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="email">Email:</label></div>
+                            <div class="col-xs-8">
+                                <input id="email"  name="email" type="text" class="form-control " >
+                            </div> 
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="gender">Gender:</label></div>
+                            <div class="col-xs-8">
+                                <select class="form-control" id="gender" name="gender">
+                                    <option disabled="disabled" selected="selected">Choose Gender</option>
+                                    <option value="Male"  >Male</option>
+                                    <option value="Female"  >Female</option>
+                                </select>
+                            </div> 
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="age_range">Age Range:</label></div>
+                            <div class="col-xs-8">
+                                <select class="form-control" id="age_range" name="age_range">
+                                    <option disabled="disabled" selected="selected">Choose Age Range</option>
+                                    <option value="18-30"  >18-30</option>
+                                    <option value="31-40"  >31-40</option>
+                                    <option value="41-50"  >41-50</option>
+                                    <option value="51-60"  >51-60</option>
+                                    <option value="61-70"  >61-70</option>
+                                    <option value="Above 70"  >Above 70</option>
+                                </select>
+                            </div> 
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="educational_qualification">Highest Educational Qualification:</label></div>
+                            <div class="col-xs-8">
+                                <select class="form-control" id="educational_qualification" name="educational_qualification">
+                                    <option disabled="disabled" selected="selected">Choose Age Qualification</option>
+                                    <option value="Informal Education"  >Informal Education</option>
+                                    <option value="Primary School Certificate"  >Primary School Certificate</option>
+                                    <option value="GCE/WAEC/SSCE/NABTEC/SAISSC"  >GCE/WAEC/SSCE/NABTEC/SAISSC</option>
+                                    <option value="A LEVEL/DIPLOMA/ND"  >A LEVEL/DIPLOMA/ND</option>
+                                    <option value="MBBS/LLB/B.A/BSC/B.ED/BAGRIC/HND"  >MBBS/LLB/B.A/BSC/B.ED/BAGRIC/HND</option>
+                                    <option value="Post Graudate Diploma"  >Post Graudate Diploma</option>
+                                    <option value="M.A/MSC/MPHIL/LLB/PHD"  >M.A/MSC/MPHIL/LLB/PHD</option>
+                                    <option value="Others"  >Others/option>
+                                </select>
+                            </div> 
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="address">Domicile Address:</label></div>
+                            <div class="col-xs-8">
+                                <input id="address" name="address" type="text" class="form-control " >
+                            </div> 
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="ward">Ward:</label></div>
+                            <div class="col-xs-8">
+                                <input id="ward"  name="ward" type="text" class="form-control " >
+                            </div> 
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="state">State:</label></div>
+
+                            <div class="col-xs-8">
+                                <select name="state" id="state" class="form-control">
+                                    <option value="">---Select State---</option>
+                                </select>
+                            </div>                           
+
+                            <!--
+                            <div class="col-xs-8">
+                                <input type="text" class="form-control" id="lga" name="lga"/>
+                            </div>
+                            -->
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="lga">LGA:</label></div>
+
+                            <div class="col-xs-8">
+                                <select class="form-control" id="lga" name="lga">
+                                    <option value="">---Select LGA---</option> 
+                                </select>
+
+                            </div>
+
+                            <!--
+                            <div class="col-xs-8">
+                                <input type="text" class="form-control" id="lga" name="lga"/>
+                            </div>
+                            -->
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="type_of_business">Type Of Business:</label></div>
+                            <div class="col-xs-8">
+                                <input id="type_of_business"  name="type_of_business" type="text" class="form-control " >
+                            </div> 
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="position">Position In The Organization:</label></div>
+                            <div class="col-xs-8">
+                                <input id="position"  name="position" type="text" class="form-control " >
+                            </div> 
+                        </div>
+
+                        <div  class="row container"><h6>Business activities</h6><hr/></div>
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="business_category">Business Category:</label></div>
+                            <div class="col-xs-8">
+                                <select class="form-control" id="business_category" name="business_category">
+                                    <option disabled="disabled" selected="selected">Choose Business category</option>
+                                    <option value="Small"  >Small</option>
+                                    <option value="Medium"  >Medium</option>
+                                    <option value="Large"  >Large</option>
+                                </select>
+                            </div> 
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="business_address">Business Address:</label></div>
+                            <div class="col-xs-8">
+                                <input id="business_address"  name="business_address" type="text" class="form-control " />
+                            </div> 
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="business_location">Business Location:</label></div>
+                            <div class="col-xs-8">
+                                <input id="business_location"  name="business_location" type="text" class="form-control " />
+                            </div> 
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="state_2">State:</label></div>
+
+                            <div class="col-xs-8">
+                                <select name="state_2" id="state_2" class="form-control">
+                                    <option value="">---Select State---</option>
+                                </select>
+                            </div>                           
+
+                            <!--
+                            <div class="col-xs-8">
+                                <input type="text" class="form-control" id="lga" name="lga"/>
+                            </div>
+                            -->
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="lga_2">LGA:</label></div>
+
+                            <div class="col-xs-8">
+                                <select class="form-control" id="lga_2" name="lga_2">
+                                    <option value="">---Select LGA---</option> 
+                                </select>
+
+                            </div>
+
+                            <!--
+                            <div class="col-xs-8">
+                                <input type="text" class="form-control" id="lga" name="lga"/>
+                            </div>
+                            -->
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="ownwership">Ownership:</label></div>
+                            <div class="col-xs-8">
+                                <select class="form-control" id="ownership" name="ownership">
+                                    <option disabled="disabled" selected="selected">Choose Owership Type</option>
+                                    <option value="Sole proprietorship"  >Sole proprietorship</option>
+                                    <option value="Partnership"  >Partnership</option>
+                                    <option value="Limited Liability "  >Limited Liability Company</option>
+                                </select>
+                            </div> 
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="partners">name(s) of partner/share holder(s):</label></div>
+                            <div class="col-xs-8">
+                                <input id="partners"  name="partners" type="text" class="form-control " >
+                            </div> 
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="share_capital">capital/share capital:</label></div>
+                            <div class="col-xs-8">
+                                <input id="share_capital"  name="share_capital" type="text" class="form-control " >
+                            </div> 
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="share_holding">share holding:</label></div>
+                            <div class="col-xs-8">
+                                <input id="share_holding"  name="share_holding" type="text" class="form-control " >
+                            </div> 
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="state_capital">state source of capital:</label></div>
+                            <div class="col-xs-8">
+                                <select class="form-control" id="state_capital" name="state_capital">
+                                    <option disabled="disabled" selected="selected">Choose State Capital</option>
+                                    <option value="Personal Savings"  >Personal Savings</option>
+                                    <option value="Private/Family Loan"  >Private/Family Loan</option>
+                                    <option value="Cooperative Loan"  >Cooperative Loan</option>
+                                    <option value="Private/Family Loan"  >Government Grant</option>
+                                    <option value="Cooperative Loan"  >Bank Loan</option>
+                                </select>
+                            </div> 
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="foreign_technical_partner">Foreign Technical Partner:</label></div>
+                            <div class="col-xs-8">
+                                <select class="form-control" id="foreign_technical_partner" name="foreign_technical_partner">
+                                    <option  disabled="disabled" selected="selected">Choose Technical Partner</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="total_work_force">Total Work Force:</label></div>
+                            <div class="col-xs-8 checkbox">
+                                <input name="total_work_force" type="checkbox" value="Yes" id="total_work_force"/>
+                            </div> 
+                        </div>
+                        <div class="form-group row total_work_force_hidden" style="display:none">
+                            <div class="col-xs-4">
+                                <div class="col-xs-4"><label for="senior_mangement">Senior:</label></div>
+                                <div class="col-xs-8">
+                                    <input id="senior_management"  name="senior_management" type="text" class="form-control "placeholder="Senior Management" >
+                                </div> 
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="col-xs-4"><label for="junior_mangement">Junior:</label></div>
+                                <div class="col-xs-8">
+                                    <input id="junior_management"  name="junior_management" type="text" class="form-control " placeholder="Junior Management">
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="col-xs-4"><label for="casual_mangement">Casual:</label></div>
+                                <div class="col-xs-8">
+                                    <input id="casual_management"  name="casual_management" type="text" class="form-control "  placeholder="Casual Management">
+                                </div> 
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="origin_of_business">Origin OF Business:</label></div>
+                            <div class="col-xs-8 checkbox">
+                                <select class="form-control" id="origin_of_business" name="origin_of_business">
+                                    <option  disabled="disabled" selected="selected">Choose Origin Of Business</option>
+                                    <option value="Self"  >Self</option>
+                                    <option value="Inheritance"  >Inheritance</option>
+                                    <option value="Others"  >Others</option>
+                                </select>
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="bankers">who are your bankers:</label></div>
+                            <div class="col-xs-8 checkbox">
+                                <input id="bankers"  name="bankers" type="text" class="form-control " >
+                            </div> 
+                        </div>
+                        <div  class="row container"><h6>Value Chain</h6><hr/></div>
+
+
+                        <div class="form-group row">
+                            <div class="col-xs-3"><label for="cp1">Types of products:</label></div>
+                            <div class="col-xs-3">
+                                <select class="form-control" name="cp1" id="cp1">
+                                    <option disabled="disabled" selected="selected">Crop 1*</option>
+                                    <option value="beans">Beans</option>
+                                    <option value="sesame" >Sesame</option>
+                                    <option value="cashew nuts" >Cashew Nuts</option>
+                                    <option value="cassava" >Cassava</option>
+                                    <option value="cocoa beans" >Cocoa Beans</option>
+                                    <option value="groundnuts" >Groundnuts</option>
+                                    <option value="gum arabic" >Gum Arabic</option>
+                                    <option value="kolanut" >Kolanut</option>
+                                    <option value="maize (corn)" >Maize (Corn)</option>
+                                    <option value="melon" >Melon</option>
+                                    <option value="millet" >Millet</option>
+                                    <option value="palm kernels" >Palm Kernels</option>
+                                    <option value="palm oil" >Palm Oil</option>
+                                    <option value="plantains" >Plantains</option>
+                                    <option value="rice" >Rice</option>
+                                    <option value="rubber" >Rubber</option>
+                                    <option value="sorghum" >Sorghum</option>
+                                    <option value="soybeans" >Soybeans</option>
+                                    <option value="bananas" >Bananas</option>
+                                    <option value="yams" >Yams</option>
+                                </select>
+                            </div> 
+                            <div class="col-xs-3">
+                                <select class="form-control" name="cp2" id="cp2">
+                                    <option disabled="disabled" selected="selected">Crop 2</option>
+                                    <option value="beans">Beans</option>
+                                    <option value="sesame" >Sesame</option>
+                                    <option value="cashew nuts" >Cashew Nuts</option>
+                                    <option value="cassava" >Cassava</option>
+                                    <option value="cocoa beans" >Cocoa Beans</option>
+                                    <option value="groundnuts" >Groundnuts</option>
+                                    <option value="gum arabic" >Gum Arabic</option>
+                                    <option value="kolanut" >Kolanut</option>
+                                    <option value="maize (corn)" >Maize (Corn)</option>
+                                    <option value="melon" >Melon</option>
+                                    <option value="millet" >Millet</option>
+                                    <option value="palm kernels" >Palm Kernels</option>
+                                    <option value="palm oil" >Palm Oil</option>
+                                    <option value="plantains" >Plantains</option>
+                                    <option value="rice" >Rice</option>
+                                    <option value="rubber" >Rubber</option>
+                                    <option value="sorghum" >Sorghum</option>
+                                    <option value="soybeans" >Soybeans</option>
+                                    <option value="bananas" >Bananas</option>
+                                    <option value="yams" >Yams</option>
+                                </select>
+                            </div> 
+                            <div class="col-xs-3">
+                                <select class="form-control" name="cp3" id="cp3">
+                                    <option disabled="disabled" selected="selected">Crop 3</option>
+                                    <option value="beans">Beans</option>
+                                    <option value="sesame" >Sesame</option>
+                                    <option value="cashew nuts" >Cashew Nuts</option>
+                                    <option value="cassava" >Cassava</option>
+                                    <option value="cocoa beans" >Cocoa Beans</option>
+                                    <option value="groundnuts" >Groundnuts</option>
+                                    <option value="gum arabic" >Gum Arabic</option>
+                                    <option value="kolanut" >Kolanut</option>
+                                    <option value="maize (corn)" >Maize (Corn)</option>
+                                    <option value="melon" >Melon</option>
+                                    <option value="millet" >Millet</option>
+                                    <option value="palm kernels" >Palm Kernels</option>
+                                    <option value="palm oil" >Palm Oil</option>
+                                    <option value="plantains" >Plantains</option>
+                                    <option value="rice" >Rice</option>
+                                    <option value="rubber" >Rubber</option>
+                                    <option value="sorghum" >Sorghum</option>
+                                    <option value="soybeans" >Soybeans</option>
+                                    <option value="bananas" >Bananas</option>
+                                    <option value="yams" >Yams</option>
+                                </select>
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="t_raw_materials">type(s) of major raw materials:</label></div>
+                            <div class="col-xs-8 checkbox">
+                                <select class="form-control" id="t_raw_materials" name="t_raw_materials">
+                                    <option  disabled="disabled" selected="selected">Choose Raw Materials</option>
+                                </select>&nbsp;<span>To be provided</span>
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="s_raw_materials">source(s) raw materials:</label></div>
+                            <div class="col-xs-8 checkbox">
+                                <select class="form-control" id="s_raw_materials" name="wts">
+                                    <option  disabled="disabled" selected="selected">Choose sources Raw Materials</option>
+                                </select>&nbsp;<span>To be provided</span>
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="customers">customers(end users):</label></div>
+                            <div class="col-xs-8 checkbox">
+                                <input id="customers"  name="customers" type="text" class="form-control " >
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="quantity_produced">Quantity Produced:</label></div>
+                            <div class="col-xs-8 checkbox">
+                                <input name="quantity_produced" type="checkbox" value="Yes" id="quantity_produced" />
+                            </div> 
+                        </div>
+
+                        <div class="form-group row quantity_produced_hidden" style="display:none">
+                            <div class="col-xs-3">
+                                <input id="daily"  name="daily" type="text" class="form-control " placeholder="Daily">
+                            </div> 
+                            <div class="col-xs-3">
+                                <input id="weekly"  name="weekly" type="text" class="form-control "  placeholder="Weekly">
+                            </div> 
+                            <div class="col-xs-3">
+                                <input id="monthly"  name="monthly" type="text" class="form-control "  placeholder="Monthly">
+                            </div> 
+                            <div class="col-xs-3">
+                                <input id="yearly"  name="yearly" type="text" class="form-control "  placeholder="Yearly">
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="quality_control">Quality Control Measures:</label></div>
+                            <div class="col-xs-8 checkbox">
+                                <input id="quality_control"  name="quality_control" type="text" class="form-control " >
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="market_outlets">market outlets:</label></div>
+                            <div class="col-xs-8 checkbox">
+                                <input id="market_outlets"  name="market_outlets" type="text" class="form-control " >
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="market_share">MARKET SHARE/AREA COVERAGE:</label></div>
+                            <div class="col-xs-8 checkbox">
+                                <input id="market_share"  name="market_share" type="text" class="form-control " >
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="quantity_sold">Quantity Sold:</label></div>
+                            <div class="col-xs-8 checkbox">
+                                <input name="quantity_sold" type="checkbox" value="Yes" id="quantity_sold" />
+                            </div> 
+                        </div>
+
+                        <div class="form-group row quantity_sold_hidden" style="display:none">
+                            <div class="col-xs-3">
+                                <input id="daily_sale"  name="daily_sale" type="text" class="form-control "  placeholder="Daily">
+                            </div> 
+                            <div class="col-xs-3">
+                                <input id="weekly_sale"  name="weekly_sale" type="text" class="form-control "  placeholder="Weekly">
+                            </div> 
+                            <div class="col-xs-3">
+                                <input id="monthly_sale"  name="monthly_sale" type="text" class="form-control " placeholder="Monthly">
+                            </div> 
+                            <div class="col-xs-3">
+                                <input id="yearly_sale"  name="yearly_sale" type="text" class="form-control "  placeholder="Yearly">
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="quantity_sold">Turn over:</label></div>
+                            <div class="col-xs-8 checkbox">
+                                <input name="turn_over" type="checkbox" value="Yes" id="turn_over"/>
+                            </div> 
+                        </div>
+
+                        <div class="form-group row turn_over_hidden" style="display:none">
+                            <div class="col-xs-3">
+                                <input id="daily_turn"  name="daily_turn" type="text" class="form-control "   placeholder="Daily">
+                            </div> 
+                            <div class="col-xs-3">
+                                <input id="weekly_turn"  name="weekly_turn" type="text" class="form-control "   placeholder="Weekly">
+                            </div> 
+                            <div class="col-xs-3">
+                                <input id="monthly_turn"  name="monthly_turn" type="text" class="form-control "   placeholder="Monthly">
+                            </div> 
+                            <div class="col-xs-3">
+                                <input id="yearly_turn"  name="yearly_turn" type="text" class="form-control "  placeholder="Yearly">
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="extension_services">Extension Services:</label></div>
+                            <div class="col-xs-8">
+                                <select class="form-control" id="extension_services" name="extension_services">
+                                    <option  disabled="disabled" selected="selected">Do you Benefit From Extension Services</option>
+                                    <option  value="Yes" >Yes</option>
+                                    <option  value="No" >No</option>
+                                </select>
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="s_extension_services">Sources of extension services:</label></div>
+                            <div class="col-xs-8">
+                                <input id="s_extension_services" name="s_extension_services" type="text" class="form-control " >
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="machines_in_use">Machines/Equipments In Use:</label></div>
+                            <div class="col-xs-8">
+                                <input id="machines_in_use" name="machines_in_use" type="text" class="form-control " >
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="s_machines_in_use">Sources of Machines/Equipments:</label></div>
+                            <div class="col-xs-8">
+                                <input id="s_machines_in_use" name="s_machine_in_use" type="text" class="form-control " >
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="business_space">Business Space:</label></div>
+                            <div class="col-xs-8">
+                                <select class="form-control" id="business_space" name="business_space">
+                                    <option  disabled="disabled" selected="selected">Is Business Adequate</option>
+                                    <option  value="Yes" >Yes</option>
+                                    <option  value="No" >No</option>
+                                </select>
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="space">Space size:</label></div>
+                            <div class="col-xs-8">
+                                <input id="space" name="space" type="text" class="form-control " >
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="space">Type of Business Space:</label></div>
+                            <div class="col-xs-8">
+                                <select class="form-control" id="t_business_space" name="t_business_space">
+                                    <option  disabled="disabled" selected="selected">Choose Type Of Business Space</option>
+                                    <option  value="Owned" >Owned</option>
+                                    <option  value="Rented" >Rented</option>
+                                    <option  value="Open space" >Open space</option>
+                                    <option  value="Road side" >Road side</option>
+                                </select>
+                            </div> 
+                        </div>
+
+                        <div  class="row container"><h6>Prospects And Challenges</h6><hr/></div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="access_to_finance">Access To Finance:</label></div>
+                            <div class="col-xs-8">
+                                <select class="form-control" id="access_to_finance" name="access_to_finance">
+                                    <option  disabled="disabled" selected="selected">Choose Access To Finance</option>
+                                    <option  value="Yes" >Yes</option>
+                                    <option  value="No" >No</option>
+                                </select>
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="access_to_market">Access To Markets/Off-takers:</label></div>
+                            <div class="col-xs-8">
+                                <select class="form-control" id="access_to_market" name="access_to_market">
+                                    <option  disabled="disabled" selected="selected">Do You Have Access To Markets/Off-takers</option>
+                                    <option  value="Yes" >Yes</option>
+                                    <option  value="No" >No</option>
+                                </select>
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="access_to_market">Percentage Of Wastages:</label></div>
+                            <div class="col-xs-8">
+                                <select class="form-control" id="percentage_of_wastage" name="percentage_of_wastage">
+                                    <option  disabled="disabled" selected="selected">Choose Percentage Of Wastages</option>
+                                    <option  value="5-20" >5-20</option>
+                                    <option  value="21-30" >21-30</option>
+                                    <option  value="31-40" >31-40</option>
+                                    <option  value="41-50" >41-50</option>
+                                    <option  value="51-60" >51-60</option>
+                                    <option  value="Above 70" >Above 70</option>
+                                </select>
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="processing_equipment">Processing Equipments:</label></div>
+                            <div class="col-xs-8">
+                                <select class="form-control" id="processing_equipment" name="processing_equipment">
+                                    <option  disabled="disabled" selected="selected">Do You Have Processing Equipments</option>
+                                    <option  value="Yes" >Yes</option>
+                                    <option  value="No" >No</option>
+                                </select>
+                            </div> 
+                        </div>
+
+                        <div class="form-group row processing_equipment_hidden" style="display:none">
+                            <div class="col-xs-4"><label for="processing_equipment">Processing Equipments:</label></div>
+                            <div class="col-xs-8">
+                                <select class="form-control" id="d_processing_equipment" name="d_processing_equipment">
+                                    <option  disabled="disabled" selected="selected">Do You Have Government Support</option>
+                                    <option  value="Federal" >Federal</option>
+                                    <option  value="State" >State</option>
+                                    <option  value="Federal And State" >Federal And State</option>
+                                    <option  value="State And Local" >State And Local</option>
+                                    <option  value="Federal And Local" >Federal And Local</option>
+                                    <option  value="All 3 Tiers" >All 3 Tiers</option>
+                                    <option  value="Others" >Others</option>
+                                </select>
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="business_expansion">Business Expansion:</label></div>
+                            <div class="col-xs-8">
+                                <select class="form-control" id="business_expansion" name="business_expansion">
+                                    <option  disabled="disabled" selected="selected">Do You Have Plans To Expand</option>
+                                    <option  value="Yes" >Yes</option>
+                                    <option  value="No" >No</option>
+                                </select>
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="source_of_capital">Source Of Capital For Expansion:</label></div>
+                            <div class="col-xs-8">
+                                <select class="form-control" id="source_of_capital" name="source_of_capital">
+                                    <option  disabled="disabled" selected="selected">Choose Source Of Capital</option>
+                                    <option  value="Personal Savings" >Personal Savings</option>
+                                    <option  value="Private/Family Loan" >Private/Family Loan</option>
+                                    <option  value="Shares" >Shares</option>
+                                    <option  value="Bank Loan" >Bank Loan</option>
+                                    <option  value="Others" >Others</option>
+                                </select>
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-12"><label for="source_of_capital">Challenges:</label></div>
+                            <div class="col-xs-4 checkbox" style="margin-top: -3.5px;">
+                                <label><input  type="checkbox" value="Yes" name="finance" id="finance"   />Finance</label>
+                            </div> 
+                            <div class="col-xs-4 checkbox">
+                                <label><input  type="checkbox" value="Yes" name="markets" id="markets"   />Markets</label>
+                            </div> 
+                            <div class="col-xs-4 checkbox">
+                                <label><input  type="checkbox" value="Yes" name="location_office" id="location_office"   />Location/Office</label>
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4 checkbox" style="margin-top: -3.5px;">
+                                <label><input  type="checkbox" value="Yes" name="warehouse" id="warehouse"   />WareHouse</label>
+                            </div> 
+                            <div class="col-xs-4 checkbox">
+                                <label><input  type="checkbox" value="Yes" name="electricity" id="electricity"   />Electricity</label>
+                            </div> 
+                            <div class="col-xs-4 checkbox">
+                                <label><input  type="checkbox" value="Yes" name="water" id="water"   />Water</label>
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4 checkbox" style="margin-top: -3.5px;">
+                                <label><input  type="checkbox" value="Yes" name="road" id="road"   />Road</label>
+                            </div> 
+                            <div class="col-xs-4 checkbox">
+                                <label><input  type="checkbox" value="Yes" name="others" id="others"   />Others</label>
+                            </div> 
+                        </div>
+
+
+                        <div class="form-group row others_hidden" style="display:none">
+                            <div class="col-xs-4"><label for="other_specify">Specify:</label></div>
+                            <div class="col-xs-8">
+                                <input id="others_specify"  name="others_specify" type="text" class="form-control" >
+                            </div> 
+                        </div>
+
+
+                        <div class="row container col-xs-12">
+                            <button type="submit"  class='btn btn-large btn-info waves-effect indigo col-xs-12'>Submit</button>
+                        </div>
+
+
+                    </form>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                </div>
+            </div>  
+
+            <br/>
+            <br/>
+
+
+            <!-- <div class="circle"></div> -->
+            <!-- <div class="burger">
+            <div class="x"></div>
+            <div class="y"></div>
+            <div class="z"></div>
+            </div> -->
+            <h5 id="page_title" class="white-text">Agro Data</h5>
+            <div id="logoic"
+                 ></div>
+        </div>
+
+        <script type="text/javascript" src="js/cordova.js"></script>
+        <script src="js/jquery.js"></script>
+
+        
+        <script src="scripts/vendor-3822e132e3.js"></script>
+        
+
+        
+        <script src="scripts/app-37dd468c2c.js"></script>
+        
+
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+        <script type="text/javascript" src="js/index.js"></script>
+
+        <script type="text/javascript" src="js/dynamiclga.js"></script>
+
+        <script>
+            function today() {
+                var d = new Date();
+                var date_string = d.getDate() + '/' + (d.getMonth() + 1) + '/' + d.getFullYear();
+                return date_string;
+            }
+            $(document).ready(function () {
+                $('#date').val(today());
+                $('textarea').val('');
+            });
+        </script>
+
+
+        <script>
+
+            $("#diagnosis").submit(function (e) {
+                e.preventDefault();
+
+    //            var formData = [];
+
+                var form_inputs = $("#diagnosis").serializeArray();
+        //        var form_inputs = $("#diagnosis").serialize();
+        //        $.each(form_inputs, function (i, field) {
+          //          formData += field.name + ":" + field.value + ",";
+           //     });
+                
+      //          console.log(form_inputs);
+                
+    //            return false;
+
+                $.ajax({
+                  url: "http://www.wofan-sdg-hydro-agro.org/facts/process1.php",
+                //    url: "http://localhost:8081/wofansdg/facts/process1.php",
+                //    data: formData,
+                    data: form_inputs,
+                    type: "POST",
+                    success: function (data) {
+                        document.getElementById("diagnosis").reset();
+                        alert(data.result);
+                    },
+                    error: function (data) {
+                        alert(data.result);
+                     //   console.log(data);
+                    }
+                });
+
+            });
+
+        </script>
+
+    </body>
+</html>

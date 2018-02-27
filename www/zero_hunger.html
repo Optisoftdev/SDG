@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html >
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="styles/bootstrap-reboot.min.css">
+        <link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="styles/bootstrap-grid.min.css">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <!-- <link rel="stylesheet" type="text/css" href="css/brand.css"> -->
+        <!--
+        <script type="text/javascript" src="js/countries.js"></script>
+        -->
+        <title> Zero Hunger </title>
+        <style>
+            label strong{
+                text-transform:lowercase !important;
+                font-size:12px;
+            }
+
+            body{
+                background: url('img/innerbg.png') no-repeat fixed;
+            }
+
+
+            hr{
+                color: #000000 !important;
+            }
+        </style>
+    </head>
+    <body >
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>                        
+                    </button>
+                    <a class="navbar-image" href="#"><img src="img/pluslogo.png"/></a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li><a onClick="window.location.href = './main.html';" >Home</a></li>
+                        <li><a onClick="window.location.href = './agric.html';" >No Poverty</a></li>
+                        <li class="active"><a onClick="window.location.href = './zero_hunger.html';">zero Hunger</a></li>
+                        <li><a onClick="window.location.href = './hydro.html';" >Clean Water & Sanitation</a></li>
+                        <li><a onClick="window.location.href = './consumption_production.html';">Responsible Consumption & Production</a></li>
+                        <li><a id="logout" href="#!">Logout</a></li></ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid" >
+            <div class="row">
+                <div class="col-xs-12">  
+                    <form id="diagnosis_zero" class="form-group">
+                        <div  class="row container"><h6>Agriculture And Nutrition Practices Section</h6><hr/></div>
+                        <!-- <tr><th  colspan="7" ><hr/></th></tr> -->
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="date">Date:</label></div>
+                            <div class="col-xs-8">
+                                <input id="date"  name="f_name" type="text" class="form-control" required />
+                            </div> 
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="name">Respondent's Name:</label></div>
+                            <div class="col-xs-8">
+                                <input id="name"  name="f_name" type="text" class="form-control" required />
+                            </div> 
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="phone_number">Phone:</label></div>
+                            <div class="col-xs-8">
+                                <input id="phone_number"  name="f_name" type="text" class="form-control" required />
+                            </div> 
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="email">Email:</label></div>
+                            <div class="col-xs-8">
+                                <input id="email"  name="f_name" type="text" class="form-control" required />
+                            </div> 
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="gender">Gender:</label></div>
+                            <div class="col-xs-8">
+                                <select class="form-control" id="gender" name="wts">
+                                    <option disabled="disabled" selected="selected">Choose Gender</option>
+                                    <option value="Male"  >Male</option>
+                                    <option value="Female"  >Female</option>
+                                </select>
+                            </div> 
+                        </div>
+                        
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="state">Country:</label></div>
+
+                            <div class="col-xs-8">
+                                <select id="national" name="nationality" class="form-control">
+                                        <option value="Afghanistan">Afghanistan</option>
+                                        <option value="Albania">Albania</option>
+                                        <option value="Algeria">Algeria</option>
+                                        <option value="American Samoa">American Samoa</option>
+                                        <option value="Andorra">Andorra</option>
+                                        <option value="Angola">Angola</option>
+                                        <option value="Anguilla">Anguilla</option>
+                                        <option value="Antartica">Antarctica</option>
+                                        <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                                        <option value="Argentina">Argentina</option>
+                                        <option value="Armenia">Armenia</option>
+                                        <option value="Aruba">Aruba</option>
+                                        <option value="Australia">Australia</option>
+                                        <option value="Austria">Austria</option>
+                                        <option value="Azerbaijan">Azerbaijan</option>
+                                        <option value="Bahamas">Bahamas</option>
+                                        <option value="Bahrain">Bahrain</option>
+                                        <option value="Bangladesh">Bangladesh</option>
+                                        <option value="Barbados">Barbados</option>
+                                        <option value="Belarus">Belarus</option>
+                                        <option value="Belgium">Belgium</option>
+                                        <option value="Belize">Belize</option>
+                                        <option value="Benin">Benin</option>
+                                        <option value="Bermuda">Bermuda</option>
+                                        <option value="Bhutan">Bhutan</option>
+                                        <option value="Bolivia">Bolivia</option>
+                                        <option value="Bosnia and Herzegowina">Bosnia and Herzegowina</option>
+                                        <option value="Botswana">Botswana</option>
+                                        <option value="Bouvet Island">Bouvet Island</option>
+                                        <option value="Brazil">Brazil</option>
+                                        <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+                                        <option value="Brunei Darussalam">Brunei Darussalam</option>
+                                        <option value="Bulgaria">Bulgaria</option>
+                                        <option value="Burkina Faso">Burkina Faso</option>
+                                        <option value="Burundi">Burundi</option>
+                                        <option value="Cambodia">Cambodia</option>
+                                        <option value="Cameroon">Cameroon</option>
+                                        <option value="Canada">Canada</option>
+                                        <option value="Cape Verde">Cape Verde</option>
+                                        <option value="Cayman Islands">Cayman Islands</option>
+                                        <option value="Central African Republic">Central African Republic</option>
+                                        <option value="Chad">Chad</option>
+                                        <option value="Chile">Chile</option>
+                                        <option value="China">China</option>
+                                        <option value="Christmas Island">Christmas Island</option>
+                                        <option value="Cocos Islands">Cocos (Keeling) Islands</option>
+                                        <option value="Colombia">Colombia</option>
+                                        <option value="Comoros">Comoros</option>
+                                        <option value="Congo">Congo</option>
+                                        <option value="Congo">Congo, the Democratic Republic of the</option>
+                                        <option value="Cook Islands">Cook Islands</option>
+                                        <option value="Costa Rica">Costa Rica</option>
+                                        <option value="Cota D'Ivoire">Cote d'Ivoire</option>
+                                        <option value="Croatia">Croatia (Hrvatska)</option>
+                                        <option value="Cuba">Cuba</option>
+                                        <option value="Cyprus">Cyprus</option>
+                                        <option value="Czech Republic">Czech Republic</option>
+                                        <option value="Denmark">Denmark</option>
+                                        <option value="Djibouti">Djibouti</option>
+                                        <option value="Dominica">Dominica</option>
+                                        <option value="Dominican Republic">Dominican Republic</option>
+                                        <option value="East Timor">East Timor</option>
+                                        <option value="Ecuador">Ecuador</option>
+                                        <option value="Egypt">Egypt</option>
+                                        <option value="El Salvador">El Salvador</option>
+                                        <option value="Equatorial Guinea">Equatorial Guinea</option>
+                                        <option value="Eritrea">Eritrea</option>
+                                        <option value="Estonia">Estonia</option>
+                                        <option value="Ethiopia">Ethiopia</option>
+                                        <option value="Falkland Islands">Falkland Islands (Malvinas)</option>
+                                        <option value="Faroe Islands">Faroe Islands</option>
+                                        <option value="Fiji">Fiji</option>
+                                        <option value="Finland">Finland</option>
+                                        <option value="France">France</option>
+                                        <option value="France Metropolitan">France, Metropolitan</option>
+                                        <option value="French Guiana">French Guiana</option>
+                                        <option value="French Polynesia">French Polynesia</option>
+                                        <option value="French Southern Territories">French Southern Territories</option>
+                                        <option value="Gabon">Gabon</option>
+                                        <option value="Gambia">Gambia</option>
+                                        <option value="Georgia">Georgia</option>
+                                        <option value="Germany">Germany</option>
+                                        <option value="Ghana">Ghana</option>
+                                        <option value="Gibraltar">Gibraltar</option>
+                                        <option value="Greece">Greece</option>
+                                        <option value="Greenland">Greenland</option>
+                                        <option value="Grenada">Grenada</option>
+                                        <option value="Guadeloupe">Guadeloupe</option>
+                                        <option value="Guam">Guam</option>
+                                        <option value="Guatemala">Guatemala</option>
+                                        <option value="Guinea">Guinea</option>
+                                        <option value="Guinea-Bissau">Guinea-Bissau</option>
+                                        <option value="Guyana">Guyana</option>
+                                        <option value="Haiti">Haiti</option>
+                                        <option value="Heard and McDonald Islands">Heard and Mc Donald Islands</option>
+                                        <option value="Holy See">Holy See (Vatican City State)</option>
+                                        <option value="Honduras">Honduras</option>
+                                        <option value="Hong Kong">Hong Kong</option>
+                                        <option value="Hungary">Hungary</option>
+                                        <option value="Iceland">Iceland</option>
+                                        <option value="India">India</option>
+                                        <option value="Indonesia">Indonesia</option>
+                                        <option value="Iran">Iran (Islamic Republic of)</option>
+                                        <option value="Iraq">Iraq</option>
+                                        <option value="Ireland">Ireland</option>
+                                        <option value="Israel">Israel</option>
+                                        <option value="Italy">Italy</option>
+                                        <option value="Jamaica">Jamaica</option>
+                                        <option value="Japan">Japan</option>
+                                        <option value="Jordan">Jordan</option>
+                                        <option value="Kazakhstan">Kazakhstan</option>
+                                        <option value="Kenya">Kenya</option>
+                                        <option value="Kiribati">Kiribati</option>
+                                        <option value="Democratic People's Republic of Korea">Korea, Democratic People's Republic of</option>
+                                        <option value="Korea">Korea, Republic of</option>
+                                        <option value="Kuwait">Kuwait</option>
+                                        <option value="Kyrgyzstan">Kyrgyzstan</option>
+                                        <option value="Lao">Lao People's Democratic Republic</option>
+                                        <option value="Latvia">Latvia</option>
+                                        <option value="Lebanon">Lebanon</option>
+                                        <option value="Lesotho">Lesotho</option>
+                                        <option value="Liberia">Liberia</option>
+                                        <option value="Libyan Arab Jamahiriya">Libyan Arab Jamahiriya</option>
+                                        <option value="Liechtenstein">Liechtenstein</option>
+                                        <option value="Lithuania">Lithuania</option>
+                                        <option value="Luxembourg">Luxembourg</option>
+                                        <option value="Macau">Macau</option>
+                                        <option value="Macedonia">Macedonia, The Former Yugoslav Republic of</option>
+                                        <option value="Madagascar">Madagascar</option>
+                                        <option value="Malawi">Malawi</option>
+                                        <option value="Malaysia">Malaysia</option>
+                                        <option value="Maldives">Maldives</option>
+                                        <option value="Mali">Mali</option>
+                                        <option value="Malta">Malta</option>
+                                        <option value="Marshall Islands">Marshall Islands</option>
+                                        <option value="Martinique">Martinique</option>
+                                        <option value="Mauritania">Mauritania</option>
+                                        <option value="Mauritius">Mauritius</option>
+                                        <option value="Mayotte">Mayotte</option>
+                                        <option value="Mexico">Mexico</option>
+                                        <option value="Micronesia">Micronesia, Federated States of</option>
+                                        <option value="Moldova">Moldova, Republic of</option>
+                                        <option value="Monaco">Monaco</option>
+                                        <option value="Mongolia">Mongolia</option>
+                                        <option value="Montserrat">Montserrat</option>
+                                        <option value="Morocco">Morocco</option>
+                                        <option value="Mozambique">Mozambique</option>
+                                        <option value="Myanmar">Myanmar</option>
+                                        <option value="Namibia">Namibia</option>
+                                        <option value="Nauru">Nauru</option>
+                                        <option value="Nepal">Nepal</option>
+                                        <option value="Netherlands">Netherlands</option>
+                                        <option value="Netherlands Antilles">Netherlands Antilles</option>
+                                        <option value="New Caledonia">New Caledonia</option>
+                                        <option value="New Zealand">New Zealand</option>
+                                        <option value="Nicaragua">Nicaragua</option>
+                                        <option value="Niger">Niger</option>
+                                        <option value="Nigeria">Nigeria</option>
+                                        <option value="Niue">Niue</option>
+                                        <option value="Norfolk Island">Norfolk Island</option>
+                                        <option value="Northern Mariana Islands">Northern Mariana Islands</option>
+                                        <option value="Norway">Norway</option>
+                                        <option value="Oman">Oman</option>
+                                        <option value="Pakistan">Pakistan</option>
+                                        <option value="Palau">Palau</option>
+                                        <option value="Panama">Panama</option>
+                                        <option value="Papua New Guinea">Papua New Guinea</option>
+                                        <option value="Paraguay">Paraguay</option>
+                                        <option value="Peru">Peru</option>
+                                        <option value="Philippines">Philippines</option>
+                                        <option value="Pitcairn">Pitcairn</option>
+                                        <option value="Poland">Poland</option>
+                                        <option value="Portugal">Portugal</option>
+                                        <option value="Puerto Rico">Puerto Rico</option>
+                                        <option value="Qatar">Qatar</option>
+                                        <option value="Reunion">Reunion</option>
+                                        <option value="Romania">Romania</option>
+                                        <option value="Russia">Russian Federation</option>
+                                        <option value="Rwanda">Rwanda</option>
+                                        <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option> 
+                                        <option value="Saint LUCIA">Saint LUCIA</option>
+                                        <option value="Saint Vincent">Saint Vincent and the Grenadines</option>
+                                        <option value="Samoa">Samoa</option>
+                                        <option value="San Marino">San Marino</option>
+                                        <option value="Sao Tome and Principe">Sao Tome and Principe</option> 
+                                        <option value="Saudi Arabia">Saudi Arabia</option>
+                                        <option value="Senegal">Senegal</option>
+                                        <option value="Seychelles">Seychelles</option>
+                                        <option value="Sierra">Sierra Leone</option>
+                                        <option value="Singapore">Singapore</option>
+                                        <option value="Slovakia">Slovakia (Slovak Republic)</option>
+                                        <option value="Slovenia">Slovenia</option>
+                                        <option value="Solomon Islands">Solomon Islands</option>
+                                        <option value="Somalia">Somalia</option>
+                                        <option value="South Africa">South Africa</option>
+                                        <option value="South Georgia">South Georgia and the South Sandwich Islands</option>
+                                        <option value="Span">Spain</option>
+                                        <option value="SriLanka">Sri Lanka</option>
+                                        <option value="St. Helena">St. Helena</option>
+                                        <option value="St. Pierre and Miguelon">St. Pierre and Miquelon</option>
+                                        <option value="Sudan">Sudan</option>
+                                        <option value="Suriname">Suriname</option>
+                                        <option value="Svalbard">Svalbard and Jan Mayen Islands</option>
+                                        <option value="Swaziland">Swaziland</option>
+                                        <option value="Sweden">Sweden</option>
+                                        <option value="Switzerland">Switzerland</option>
+                                        <option value="Syria">Syrian Arab Republic</option>
+                                        <option value="Taiwan">Taiwan, Province of China</option>
+                                        <option value="Tajikistan">Tajikistan</option>
+                                        <option value="Tanzania">Tanzania, United Republic of</option>
+                                        <option value="Thailand">Thailand</option>
+                                        <option value="Togo">Togo</option>
+                                        <option value="Tokelau">Tokelau</option>
+                                        <option value="Tonga">Tonga</option>
+                                        <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+                                        <option value="Tunisia">Tunisia</option>
+                                        <option value="Turkey">Turkey</option>
+                                        <option value="Turkmenistan">Turkmenistan</option>
+                                        <option value="Turks and Caicos">Turks and Caicos Islands</option>
+                                        <option value="Tuvalu">Tuvalu</option>
+                                        <option value="Uganda">Uganda</option>
+                                        <option value="Ukraine">Ukraine</option>
+                                        <option value="United Arab Emirates">United Arab Emirates</option>
+                                        <option value="United Kingdom">United Kingdom</option>
+                                        <option value="United States">United States</option>
+                                        <option value="United States Minor Outlying Islands">United States Minor Outlying Islands</option>
+                                        <option value="Uruguay">Uruguay</option>
+                                        <option value="Uzbekistan">Uzbekistan</option>
+                                        <option value="Vanuatu">Vanuatu</option>
+                                        <option value="Venezuela">Venezuela</option>
+                                        <option value="Vietnam">Viet Nam</option>
+                                        <option value="Virgin Islands (British)">Virgin Islands (British)</option>
+                                        <option value="Virgin Islands (U.S)">Virgin Islands (U.S.)</option>
+                                        <option value="Wallis and Futana Islands">Wallis and Futuna Islands</option>
+                                        <option value="Western Sahara">Western Sahara</option>
+                                        <option value="Yemen">Yemen</option>
+                                        <option value="Yugoslavia">Yugoslavia</option>
+                                        <option value="Zambia">Zambia</option>
+                                        <option value="Zimbabwe">Zimbabwe</option>
+                                </select>
+                            </div>                           
+
+                            
+
+                        </div>
+
+
+                        <div class="form-group row stateelement" style="display: none;">
+                            <div class="col-xs-4"><label for="state">State:</label></div>
+
+                            <div class="col-xs-8">
+                                <select name="state" id="state" class="form-control">
+                                    <option value="">---select state---</option>
+                                </select>
+                            </div>                           
+
+                        </div>
+
+                        <div class="form-group row lgaelement" style="display: none;">
+                            <div class="col-xs-4"><label for="lga">LGA:</label></div>
+
+                            <div class="col-xs-8">
+                                <select name="local" id="local" class="form-control">
+                                    <option value="">---select L.G.A---</option>
+                                </select>
+                            </div>
+
+                            <!--
+                            <div class="col-xs-8">
+                                <input type="text" class="form-control" id="lga" name="lga"/>
+                            </div>
+                            -->
+                        </div>
+                        
+                        <div class="form-group row communication_means">
+                            <div class="col-xs-12"><b> Primary Means of Communication: </b></div>
+
+                            <div class="col-xs-6 col-xs-offset-4 checkbox" style="margin-top: -3.5px;">
+                                <label><input  type="checkbox" name="communication_radio" id="communication_radio" /> Radio </label>
+                            </div> 
+                            <div class="col-xs-6 col-xs-offset-4 checkbox">
+                                <label><input  type="checkbox" name="communication_telephone" id="communication_telephone"   /> Telephone </label>
+                            </div> 
+                            <div class="col-xs-6 col-xs-offset-4 checkbox">
+                                <label><input  type="checkbox" name="communication_sms" id="communication_sms" /> Text Message </label>
+                            </div> 
+                            <div class="col-xs-6 col-xs-offset-4 checkbox">
+                                <label><input  type="checkbox" name="communication_socialmedia"  type="checkbox" id="communication_socialmedia"   /> Social Media </label>
+                            </div> 
+                            <div class="col-xs-6 col-xs-offset-4 checkbox">
+                                <label><input  type="checkbox" name="communication_grouprep"  type="checkbox" id="communication_grouprep" /> Group Representative </label>
+                            </div> 
+                            
+                        </div>
+                        
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="gender"> Location Type </label></div>
+                            <div class="col-xs-8">
+                                <select class="form-control" id="gender" name="wts">
+                                    <option disabled="disabled" selected="selected">Select Location Type </option>
+                                    <option name="rural" id="rural"> Rural </option>
+                                    <option name="urban" id="urban"> Urban </option>                                
+                                </select>
+                            </div> 
+                        </div>
+                        
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="project_activity">type of project activity:</label></div>
+                            <div class="col-xs-8">
+                                <select class="form-control" id="project_activity" name="wts">
+                                    <option  disabled="disabled" selected="selected">Choose Project Activity</option>
+                                    <option value="water_access_and_sanitation"  >Water Access And Sanitation</option>
+                                    <option value="education_and_awareness"  >Education And Awareness</option>
+                                    <option value="water_for_productive_use"  >Water For Productive Use</option>
+                                    <option value="watershed_protection"  >Watershed Protection</option>
+                                </select>
+                            </div> 
+                        </div>
+
+
+                        <div class="form-group row water_access_and_sanitation_hidden" style="display:none">
+                            <div class="col-xs-12"><b>Water Access And Sanitation:</b></div>
+
+                            <div class="col-xs-6 checkbox" style="margin-top: -3.5px;">
+                                <label><input  type="checkbox" name="protected_spring_box" id="protected_spring_box"   />Protected Spring Box</label>
+                            </div> 
+                            <div class="col-xs-6 checkbox">
+                                <label><input  type="checkbox" name="well_construction" id="well_construction"   />Well Construction /Rehabilitation</label>
+                            </div> 
+                            <div class="col-xs-6 checkbox">
+                                <label><input  type="checkbox" name="rainwater_harvesting" id="rainwater_harvesting"   />Rainwater Harvesting</label>
+                            </div> 
+                            <div class="col-xs-6 checkbox">
+                                <label><input  type="checkbox" name="water_treatment"  type="checkbox" id="water_treatment"   />Point of Use Water Treatment</label>
+                            </div> 
+                            <div class="col-xs-6 checkbox">
+                                <label><input  type="checkbox" name="latrine_installation"  type="checkbox" id="latrine_installation"   />Latrine Installation</label>
+                            </div> 
+                            <div class="col-xs-6 checkbox">
+                                <label><input  type="checkbox" name="distribution_network"  type="checkbox" id="distribution_network"   />Distribution Network Construction / Rehabilitation</label>
+                            </div> 
+                            <div class="col-xs-6 checkbox">
+                                <label><input  type="checkbox" name="hygiene_training"  type="checkbox" id="hygiene_training"   />Hygiene Training</label>
+                            </div> 
+                        </div>
+
+
+
+
+                        <div class="form-group row education_and_awareness_hidden" style="display:none">
+                            <div class="col-xs-12"><b>Education And Awareness:</b></div>
+                            <div class="col-xs-6 checkbox" style="margin-top: -3.5px;">
+                                <label><input  type="checkbox" name="communication_campaign" id="communication_campaign"   />Communication campaign</label>
+                            </div> 
+                            <div class="col-xs-6 checkbox">
+                                <label><input  type="checkbox" name="tool_kits" id="tool_kits"   />Tool-kits and youth development programs</label>
+                            </div> 
+                            <div class="col-xs-6 checkbox">
+                                <label><input  type="checkbox" name="training_programs" id="training_programs"   />Develop and/or deliver training programs</label>
+                            </div> 
+                            <div class="col-xs-6 checkbox">
+                                <label><input  type="checkbox" name="research_project" id="research_project"   />Research project or activity</label>
+                            </div> 
+                            <div class="col-xs-6 checkbox">
+                                <label><input  type="checkbox" name="policy_governmanet" id="policy_governmanet"   />Policy and government engagement</label>
+                            </div> 
+                            <div class="col-xs-6 checkbox">
+                                <label><input  type="checkbox" name="community_engagement" id="community_engagement"   />Community engagement</label>
+                            </div> 
+                        </div>
+
+
+                        <div class="form-group row water_for_productive_use_hidden" style="display:none">
+                            <div class="col-xs-12"><b>Water For Productive Use:</b></div>
+                            <div class="col-xs-6 checkbox" style="margin-top: -3.5px;">
+                                <label><input  type="checkbox" name="irrigation_system" id="irrigation_system"   />Improvement or implementation of Irrigation system</label>
+                            </div> 
+                            <div class="col-xs-6 checkbox">
+                                <label><input  type="checkbox" name="upgrade_of_waste_water" id="upgrade_of_waste_water"   />Installation or upgrade of waste water</label>
+                            </div> 
+                            <div class="col-xs-6 checkbox">
+                                <label><input  type="checkbox" name="treated_waste_water" id="treated_waste_water"   />Reuse of treated waste water</label>
+                            </div> 
+                            <div class="col-xs-6 checkbox">
+                                <label><input  type="checkbox" name="research_project" id="research_project"   />Research project or activity</label>
+                            </div> 
+                            <div class="col-xs-6 checkbox">
+                                <label><input  type="checkbox" name="harvest_of_rain_water" id="harvest_of_rain_water"   />Harvesting of rainwater</label>
+                            </div> 
+                            <div class="col-xs-6 checkbox">
+                                <label><input  type="checkbox" name="installation_of_well" id="installation_of_well"   />Installation of wells</label>
+                            </div> 
+                        </div>
+
+
+                        <div class="form-group row watershed_protection_hidden" style="display:none">
+                            <div class="col-xs-4"><label for="watershed">Water For Productive Use:</label></div>
+                            <div class="col-xs-8">
+                                <select class="form-control" id="watershed" name="wts">
+                                    <option disabled="disabled" selected="selected">Choose Watershed</option>
+                                    <option value="Agricultural_land_practice_changes"  >Agricultural land practice changes</option>
+                                    <option value="Storm_water_management"  >Storm water management</option>
+                                    <option value="Land_use_or_land_cover_alterations"  >Land use / land cover alterations</option>
+                                    <option value="Hydraulic_or_hydrologic_water_body_alterations"  >Hydraulic/hydrologic water body alterations</option>
+                                    <option value="Recaptured_leakage_from_water_systems"  >Recaptured leakage from water systems</option>
+                                    <option value="Wastewater_treatment"  >Wastewater treatment</option>
+                                    <option value="Biologic_management"  >Biologic management</option>
+                                    <option value="Water_reuse"  >Water reuse</option>
+                                    <option value="Rainwater_harvesting_for_aquifer_recharge"  >Rainwater harvesting for aquifer recharge</option>
+                                </select>
+                            </div> 
+                        </div>
+
+
+                        <div class="form-group row Agricultural_land_practice_changes_hidden" style="display:none">
+                            <div class="col-xs-4"><label for="agricultural_land">Agricultural land practice:</label></div>
+                            <div class="col-xs-8">
+                                <select class="form-control" id="agricultural_land" name="wts">
+                                    <option disabled="disabled" selected="selected">Choose Agricultural land practice</option>
+                                    <option value="Fertilizer_herbicide_or_pesticide_management"  >Fertilizer, herbicide, or pesticide management</option>
+                                    <option value="Irrigation water management"  >Irrigation water management</option>
+                                    <option value="Crop_farmland management"  >Crop/farmland management</option>
+                                    <option value="Other"  >Other</option>
+                                </select>
+                            </div> 
+                        </div>
+
+
+                        <div class="form-group row Storm_water_management_hidden" style="display:none">
+                            <div class="col-xs-4"><label for="Storm_water">Storm water management:</label></div>
+                            <div class="col-xs-8">
+                                <select class="form-control" id="Storm_water" name="wts">
+                                    <option disabled="disabled" selected="selected">Choose Storm water management</option>
+                                    <option value="Rain_barrels"  >Rain barrels</option>
+                                    <option value="Rain_gardens"  >Rain gardens</option>
+                                    <option value="Riparian_buffers_or_filter_strips"  >Riparian buffers / filter strips</option>
+                                    <option value="Other"  >Other (e.g., green roofs, vegetated swales, detention basins)</option>
+                                </select>
+                            </div> 
+                        </div>
+
+
+                        <div class="form-group row Land_use_or_land_cover_alterations_hidden" style="display:none">
+                            <div class="col-xs-4"><label for="Land_use_or_land_cover">Land use / land cover alterations:</label></div>
+                            <div class="col-xs-8 checkbox">
+                                <select class="form-control" id="Land_use_or_land_cover" name="wts">
+                                    <option disabled="disabled" selected="selected">Choose Land use / land cover alterations</option>
+                                    <option value="Reforestation_or_revegetation"  >Reforestation/revegetation</option>
+                                    <option value="Conservation_of_existing_land_cover_or_wetlands"  >Conservation of existing land cover/wetlands</option>
+                                    <option value="Riparian_buffers"  >Riparian buffers</option>
+                                    <option value="Other"  >Other</option>
+                                </select>
+                            </div> 
+                        </div>
+
+
+                        <div class="form-group row Hydraulic_or_hydrologic_water_body_alterations_hidden" style="display:none">
+                            <div class="col-xs-4"><label for="Hydraulic_or_hydrologic_water">Hydraulic/hydrologic water body alterations:</label></div>
+                            <div class="col-xs-8">
+                                <select class="form-control" id="Hydraulic_or_hydrologic_water" name="wts">
+                                    <option disabled="disabled" selected="selected">Choose Hydraulic/hydrologic water body alterations</option>
+                                    <option value="Dam_removal_or_change_in_dam_operations"  >Dam removal or change in dam operations</option>
+                                    <option value="Water_transfers_for_environmental_flows"  >Water transfers for environmental flows</option>
+                                    <option value="Reconnection_to_floodplain_or_riparian_wetland_restoration"  >Reconnection to floodplain / riparian wetland restoration</option>
+                                    <option value="Other"  >Other</option>
+                                </select>
+                            </div> 
+                        </div>
+
+
+                        <div class="form-group row Wastewater_treatment_hidden" style="display:none">
+                            <div class="col-xs-4"><label for="Wastewater_treatment">Wastewater treatment:</label></div>
+                            <div class="col-xs-8">
+                                <select class="form-control" id="Wastewater_treatment" name="wts">
+                                    <option disabled="disabled" selected="selected">Choose Wastewater treatment</option>
+                                    <option value="Wastewater_treatment_plant_construction"  >Wastewater treatment plant construction</option>
+                                    <option value="Wastewater_treatment_plant_improvement"  >Wastewater treatment plant improvement</option>
+                                    <option value="Other"  >Other</option>
+                                </select>
+                            </div> 
+                        </div>
+
+
+                        <div class="form-group row Biologic_management_hidden" style="display:none">
+                            <div class="col-xs-4"><label for="Biologic_management">Wastewater treatment:</label></div>
+                            <div class="col-xs-8">
+                                <select class="form-control" id="Biologic_management" name="wts">
+                                    <option disabled="disabled" selected="selected">Choose Biologic management</option>
+                                    <option value="Invasive_species_control"  >Invasive species control</option>
+                                    <option value="Other"  >Other</option>
+                                </select>
+                            </div> 
+                        </div>
+
+                        <div  class="row container"> 
+                            <h6>Input Yields And Family Nutrition</h6> 
+                            <hr/> 
+                        </div>
+
+
+                        <div class="form-group row">
+                            <div class="col-xs-12"><b>Project Objectives:</b></div>
+                            <div class="col-xs-6 checkbox" style="margin-top: -3.5px;">
+                                <label><input  type="checkbox" name="irrigation_system" id="quality"   />Improve Quality inputs</label>
+                            </div> 
+                            <div class="col-xs-6 checkbox">
+                                <label><input  type="checkbox" name="quantity" id="quantity"   />Improve Yield Quantity</label>
+                            </div> 
+                            <div class="col-xs-6 checkbox">
+                                <label><input  type="checkbox" name="market" id="market"   />Improve Market</label>
+                            </div> 
+                            <div class="col-xs-6 checkbox">
+                                <label><input  type="checkbox" name="finance" id="finance"   />Improve Finance</label>
+                            </div> 
+                            <div class="col-xs-6 checkbox">
+                                <label><input  type="checkbox" name="nutrition" id="nutrition"   />Improve Food Management And Family Nutrition</label>
+                            </div> 
+                            <div class="col-xs-6 checkbox">
+                                <label><input  type="checkbox" name="other" id="other"   />Other</label>
+                            </div> 
+                        </div>
+
+
+                        <div class="form-group row other_hidden" style="display:none">
+                            <div class="col-xs-4"><label for="other_specify">Specify:</label></div>
+                            <div class="col-xs-8">
+                                <input id="other_specify"  name="other_specify" type="text" class="form-control" >
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="land_area">Describe the land area Where management Practices have been applied:</label></div>
+                            <div class="col-xs-8">
+                                <textarea id="land_area"  name="f_name" type="text" class="form-control" rows="8" value="" placeholder="e.g. Describe crop types for cropland">
+                                </textarea>
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="surface_area">Cumulative Surface area of cropland affected by project:</label></div>
+                            <div class="col-xs-8">
+                                <input id="surface_area"  name="f_name" type="text" class="form-control " >
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="beneficiaries">number of beneficiaries:</label></div>
+                            <div class="col-xs-8">
+                                <input  type="checkbox" name="beneficiaries"  type="checkbox" id="beneficiaries"   />
+                            </div> 
+                        </div>
+
+                        <div class="form-group row beneficiaries_hidden" style="display:none">
+                            <div class="col-xs-4"><label for="beneficiaries">number of beneficiaries:</label></div>
+                            <div class="col-xs-4">
+                                <select class="form-control" id="male_beneficiaries" name="wts">
+                                    <option disabled="disabled" selected="selected">Choose Male</option>
+                                    <option value="1-17"  >1-17</option>
+                                    <option value="18-30"  >18-30</option>
+                                    <option value="31-40"  >31-40</option>
+                                    <option value="41-50"  >41-50</option>
+                                    <option value="51-60"  >51-60</option>
+                                    <option value="61-70"  >61-70</option>
+                                    <option value="Above 70"  >Above 70</option>
+                                </select>
+                            </div> 
+                            <div class="col-xs-4">
+                                <select class="form-control" id="female_beneficiaries" name="wts">
+                                    <option disabled="disabled" selected="selected">Choose Female</option>
+                                    <option value="1-17"  >1-17</option>
+                                    <option value="18-30"  >18-30</option>
+                                    <option value="31-40"  >31-40</option>
+                                    <option value="41-50"  >41-50</option>
+                                    <option value="51-60"  >51-60</option>
+                                    <option value="61-70"  >61-70</option>
+                                    <option value="Above 70"  >Above 70</option>
+                                </select>
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><b>number of participating family member:</b></div>
+                            <div class="col-xs-8 checkbox">
+                                <label><input  type="checkbox" name="family_members" id="family_members"   />Participants</label>
+                            </div> 
+                        </div>
+
+                        <div class="form-group row family_members_hidden" style="display:none">
+                            <div class="col-xs-4">
+                                <select class="form-control" id="male_participants" name="wts">
+                                    <option disabled="disabled" selected="selected">Choose Male</option>
+                                    <option value="1-17"  >1-17</option>
+                                    <option value="18-30"  >18-30</option>
+                                    <option value="31-40"  >31-40</option>
+                                    <option value="41-50"  >41-50</option>
+                                    <option value="51-60"  >51-60</option>
+                                    <option value="61-70"  >61-70</option>
+                                    <option value="Above 70"  >Above 70</option>
+                                </select>
+                            </div> 
+                            <div class="col-xs-4">
+                                <select class="form-control" id="female_participants" name="wts">
+                                    <option disabled="disabled" selected="selected">Choose Female</option>
+                                    <option value="1-17"  >1-17</option>
+                                    <option value="18-30"  >18-30</option>
+                                    <option value="31-40"  >31-40</option>
+                                    <option value="41-50"  >41-50</option>
+                                    <option value="51-60"  >51-60</option>
+                                    <option value="61-70"  >61-70</option>
+                                    <option value="Above 70"  >Above 70</option>
+                                </select>
+                            </div> 
+                            <div class="col-xs-4">
+                                <select class="form-control" id="age_of_participants" name="wts">
+                                    <option disabled="disabled" selected="selected">Choose Age Range</option>
+                                    <option value="10-30"  >10-30</option>
+                                    <option value="31-40"  >31-40</option>
+                                    <option value="41-50"  >41-50</option>
+                                    <option value="51-60"  >51-60</option>
+                                    <option value="61-70"  >61-70</option>
+                                    <option value="Above 70"  >Above 70</option>
+                                </select>
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="sources_of_input">Describe Sources Of input for past and previous projects:</label></div>
+                            <div class="col-xs-8">
+                                <textarea id="sources_of_input"  name="f_name" type="text" class="form-control" rows="8" value="">
+                                </textarea>
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="yields_plot">Specify Yields per plot of listed plot:</label></div>
+                            <div class="col-xs-8">
+                                <textarea id="yields_plot"  name="f_name" type="text" class="form-control" rows="8" value="">
+                                </textarea>
+                            </div> 
+                        </div>
+                        
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="yields_plot"> List names of partners:</label></div>
+                            <div class="col-xs-8">
+                                <textarea id="partners"  name="partners" type="text" class="form-control" rows="8" value="">
+                                </textarea>
+                            </div> 
+                        </div>
+                        
+                        <hr/>
+
+                        <div class="form-group row">
+                            <div class="col-xs-12"><b>Agricultural Practices through projects:</b></div>
+                            <div class="col-xs-6 checkbox" style="margin-top: -3.5px;">
+                                <label><input  type="checkbox" name="land_management" id="land_management"   />Land management</label>
+                            </div> 
+                            <div class="col-xs-6 checkbox">
+                                <label><input  type="checkbox" name="certified_seed" id="certified_seed"   />Certified seeds</label>
+                            </div> 
+                            <div class="col-xs-6 checkbox">
+                                <label><input  type="checkbox" name="pesticides" id="pesticides"   />Pesticides</label>
+                            </div> 
+                            <div class="col-xs-6 checkbox">
+                                <label><input  type="checkbox" name="safe_handling" id="safe_handling"   /> Safe handling of pesticides</label>
+                            </div> 
+                            <div class="col-xs-6 checkbox">
+                                <label><input  type="checkbox" name="fertilizer_application" id="fertilizer_application"   />Fertilizer Application</label>
+                            </div> 
+                            <div class="col-xs-6 checkbox">
+                                <label><input  type="checkbox" name="water_management" id="water_management"   />Water Management</label>
+                            </div> 
+                            <div class="col-xs-6 checkbox">
+                                <label><input  type="checkbox" name="harvest_handling" id="harvest_handling"   />Harvest and post harvest handling</label>
+                            </div> 
+                            <div class="col-xs-6 checkbox">
+                                <label><input  type="checkbox" name="market_contract" id="market_contract"   />Market and contract farming</label>
+                            </div> 
+                            <div class="col-xs-6 checkbox">
+                                <label><input  type="checkbox" name="access_finance" id="access_finance"   />Access to Finance</label>
+                            </div>
+                            <div class="col-xs-6 checkbox">
+                                <label><input  type="checkbox" name="access_irrigation" id="access_irrigation"   />Access to Irrigation Facility</label>
+                            </div>
+                            <div class="col-xs-6 checkbox">
+                                <label><input  type="checkbox" name="crop_insurance" id="crop_insurance"   /> Have crop insurance </label>
+                            </div>
+                        </div>
+
+                        <hr/>
+                        
+                        <!-- Goal 2. End hunger, achieve food security and improved nutrition and promote sustainable agriculture -->
+                        
+                        <div class="form-group row">
+                            
+                            <div class="col-xs-4"><label for="surface_area"> Have documented or recognized evidence of land tenure </label></div>
+                            <div class="col-xs-8">
+                                <label><input  type="checkbox" name="evidence_of_land_document" id="evidence_of_land_document" /> Check if yes </label>
+                            </div>
+                                                     
+                        </div>
+                        
+                        <div class="form-group row">
+                            
+                            <div class="col-xs-4"><label for="surface_area"> Farmer perceives his/her rights (regarding farmland) are recognized and protected </label></div>
+                            <div class="col-xs-8">
+                                <label><input  type="checkbox" name="confidence_in_right" id="confidence_in_right" /> Check if yes </label>
+                            </div>
+                                                     
+                        </div>
+                        
+                        <div class="form-group row">
+                            
+                            <div class="col-xs-4"><label for="surface_area"> Amount in U.S. Dollars of losses from natural disasters, by climate and non-climate-related </label></div>
+                            <div class="col-xs-8">
+                                <label> <small> Enter Amount for Climate related loss ($) </small> </label>
+                                    <input class="form-control" type="text" name="confidence_in_right" id="confidence_in_right" placeholder="Climate related loss" />
+                            </div>
+                            
+                            <div class="col-xs-8 col-xs-offset-4">
+                                <label> <small> Enter Amount for Non-Climate related loss ($) </small> </label>
+                                    <input class="form-control" type="text" name="loss_from_disasters_nonclimate" id="loss_from_disasters_nonclimate" placeholder="Non-climate related loss" /> 
+                            </div>
+                                                     
+                        </div>
+                        
+                        <div class="form-group row">
+                            
+                            <div class="col-xs-4"><label for="surface_area"> Farmer have an assigned extension worker </label></div>
+                            <div class="col-xs-8">
+                                <label> <small> Enter number of extension workers </small> </label>
+                                    <input class="form-control" type="text" name="assigned_extension_worker" id="confidence_in_right" placeholder="Assigned extension worker" />
+                            </div>
+                                                                        
+                        </div>
+                        
+                        <div class="form-group row">
+                            
+                            <div class="col-xs-4"><label for="surface_area"> Farmer have a nationally recognized and appropriate crop insurance </label></div>
+                            <div class="col-xs-8">
+                                <label><input type="checkbox" name="crop_insurance" id="crop_insurance" /> Check if yes </label>
+                            </div>
+                                                                        
+                        </div>                        
+                        
+                        <hr/>
+                        
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="surface_area"> Number of those below minimum level of dietary energy consumption: </label></div>
+                            <div class="col-xs-8">
+                                <input type="text" name="energy_requirements" id="energy_requirements" class="form-control" placeholder="Enter figure here"/> 
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="surface_area"> Number of infants under 6 months who are exclusively breast-fed: </label></div>
+                            <div class="col-xs-8">
+                                <input type="text" name="infant_breastfeeding" id="infant_breastfeeding" class="form-control" placeholder="Enter figure here"/> 
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="surface_area"> Number of women between 15 - 49 with anemia (deficiency in Iron, Vitamin B12, Folic Acid): </label></div>
+                            <div class="col-xs-8">
+                                <input type="text" name="anemic_women" id="anemic_women" class="form-control" placeholder="Enter figure here"/> 
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="surface_area"> Number of stunting and wasting in children under 5 years of age: </label></div>
+                            <div class="col-xs-8">
+                                <input type="text" name="stunting_wasting" id="stunting_wasting" class="form-control" placeholder="Enter figure here"/> 
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="surface_area"> Number  of women between age of 15-49 who consume at least 5 out of 10 defined food groups (Protein, high protein baby foods, carbohydrates, others): </label></div>
+                            <div class="col-xs-8">
+                                <input type="text" name="women_defined_foods" id="women_defined_foods" class="form-control" placeholder="Enter figure here"/> 
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="surface_area"> Number of men with shortfall in vitamins (iron, zinc, iodine, vitamin A, folate, vitamin B12 [and vitamin D]) </label></div>
+                            <div class="col-xs-8">
+                                <input type="text" name="male_vitamin_deficiency" id="vitamin_deficiency" class="form-control" placeholder="Enter figure here"/> 
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="surface_area"> Number of women with shortfall in vitamins (iron, zinc, iodine, vitamin A, folate, vitamin B12 [and vitamin D]) </label></div>
+                            <div class="col-xs-8">
+                                <input type="text" name="female_vitamin_deficiency" id="vitamin_deficiency" class="form-control" placeholder="Enter figure here"/> 
+                            </div> 
+                        </div>
+                                                                       
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="surface_area"> Number of infants 6-23 months of age who receive a minimum acceptable diet </label></div>
+                            <div class="col-xs-8">
+                                <input type="text" name="infant_acceptable_diet" id="infant_acceptable_diet" class="form-control" placeholder="Enter figure here"/> 
+                            </div> 
+                        </div>
+                        
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="surface_area"> number of children born with low birth weight (less than 2.5kg) </label></div>
+                            <div class="col-xs-8">
+                                <input type="text" name="low_birth_weight" id="low_birth_weight" class="form-control" placeholder="Enter figure here"/> 
+                            </div> 
+                        </div>
+                        
+
+                       <!-- <div  class="row container"><h6>Describe previous and current management practices</h6><hr/></div> -->
+
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="why_eat"> Why do we eat: </label></div>
+                            <div class="col-xs-8">
+                                <textarea id="why_eat"  name="f_name" type="text" class="form-control" rows="8" value="">
+                                </textarea>
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="food_types"> popular food types: </label></div>
+                            <div class="col-xs-8">
+                                <textarea id="food_types"  name="f_name" type="text" class="form-control" rows="8" value="">
+                                </textarea>
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="food_needs"> family food needs: </label></div>
+                            <div class="col-xs-8">
+                                <textarea id="food_needs"  name="f_name" type="text" class="form-control" rows="8" value="">
+                                </textarea>
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="Others_food"> Others: </label></div>
+                            <div class="col-xs-8">
+                                <textarea id="Others_food"  name="f_name" type="text" class="form-control" rows="8" value="">
+                                </textarea>
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="group_formation"> Provide a detailed description of group formation: </label></div>
+                            <div class="col-xs-8">
+                                <textarea id="group_formation"  name="f_name" type="text" class="form-control" rows="8" value="">
+                                </textarea>
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="benefitting_farmer"> Are groups formed by benefitting farmers: </label></div>
+                            <div class="col-xs-8 checkbox">
+                                <select class="form-control" id="benefitting_farmer" name="wts">
+                                    <option  disabled="disabled" selected="selected">Choose Answer</option>
+                                    <option   value="Yes">Yes</option>
+                                    <option value="No"  >No</option>
+                                </select>
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><b>number of participating family member:</b></div>
+                            <div class="col-xs-8 checkbox">
+                                <label><input  type="checkbox" name="membership" id="membership"   />Membership</label>
+                            </div> 
+                        </div>
+
+                        <div class="form-group row membership_hidden" style="display:none">
+                            <div class="col-xs-4"><label for="members">Specify:</label></div>
+                            <div class="col-xs-4">
+                                <select class="form-control" id="male_membership" name="wts">
+                                    <option disabled="disabled" selected="selected">Choose Male</option>
+                                    <option value="1-17"  >1-17</option>
+                                    <option value="18-30"  >18-30</option>
+                                    <option value="31-40"  >31-40</option>
+                                    <option value="41-50"  >41-50</option>
+                                    <option value="51-60"  >51-60</option>
+                                    <option value="61-70"  >61-70</option>
+                                    <option value="Above 70"  >Above 70</option>
+                                </select>
+                            </div> 
+                            <div class="col-xs-4">
+                                <select class="form-control" id="female_membership" name="wts">
+                                    <option disabled="disabled" selected="selected">Choose Female</option>
+                                    <option value="1-17"  >1-17</option>
+                                    <option value="18-30"  >18-30</option>
+                                    <option value="31-40"  >31-40</option>
+                                    <option value="41-50"  >41-50</option>
+                                    <option value="51-60"  >51-60</option>
+                                    <option value="61-70"  >61-70</option>
+                                    <option value="Above 70"  >Above 70</option>
+                                </select>
+                            </div> 
+                        </div>
+
+                        
+                        <div class="form-group row">
+                            <div class="col-xs-12"><b>Benefits of Group Membership:</b></div>
+                            <div class="col-xs-4 checkbox" style="margin-top: -3.5px;">
+                                <label><input  type="checkbox" name="group_purchase" id="group_purchase"   />group purchase (access to inputs)</label>
+                            </div> 
+                            <div class="col-xs-4 checkbox">
+                                <label><input  type="checkbox" name="group_sales" id="group_sales"   />group sales (contract farming)</label>
+                            </div> 
+                            <div class="col-xs-4 checkbox">
+                                <label><input  type="checkbox" name="training_capacity" id="training_capacity"   />Training and capacity building</label>
+                            </div> 
+                        </div>
+
+                        <div class="form-group row training_capacity_hidden" style="display:none">
+                            <div class="col-xs-4"></div>
+                            <div class="col-xs-4 checkbox" style="margin-top: -5px;">
+                                <label><input  type="checkbox" name="gap" id="gap" />gap</label>
+                            </div> 
+                            <div class="col-xs-4 checkbox">
+                                <label><input  type="checkbox" name="fbs" id="fbs" />fbs</label>
+                            </div> 
+                        </div>
+
+
+                        <div  class="row container"><h6>Post harvest handling and processing Section</h6><hr/></div>
+
+
+                        <div class="form-group row">
+                            <div class="col-xs-12"><b>Project Objectives:</b></div>
+                            <div class="col-xs-4 checkbox" style="margin-top: -3.5px;">
+                                <label><input  type="checkbox" name="quality1" id="quality1"   />Improve Quality inputs</label>
+                            </div> 
+                            <div class="col-xs-4 checkbox">
+                                <label><input  type="checkbox" name="quantity1" id="quantity1"   />Improve Yield Quantity</label>
+                            </div> 
+                            <div class="col-xs-4 checkbox">
+                                <label><input  type="checkbox" name="market1" id="market1"   />Improve Market</label>
+                            </div> 
+                            <div class="col-xs-4 checkbox">
+                                <label><input  type="checkbox" name="finance1" id="finance1"   />Improve Finance</label>
+                            </div> 
+                            <div class="col-xs-4 checkbox">
+                                <label><input  type="checkbox" name="nutrition1" id="nutrition1"   />Improve Food Management And Family Nutrition</label>
+                            </div> 
+                            <div class="col-xs-4 checkbox">
+                                <label><input  type="checkbox" name="other1" id="other1"   />Other</label>
+                            </div> 
+                        </div>
+
+                        <div class="form-group row other1_hidden" style="display:none">
+                            <div class="col-xs-4"><label for="other_specify">Specify:</label></div>
+                            <div class="col-xs-8">
+                                <input id="other_specify"  name="f_name" type="text" class="form-control" >
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="group_formation"> percentage increase in crop yield in reporting period (% per annum) </label></div>
+                            <div class="col-xs-8">
+                                <label><input type="text" name="increase_pa" id="increase_pa" class="form-control" /></label>
+                            </div> 
+                        </div>
+                        
+                        <hr/>
+                        
+                        <div class="form-group row">
+                            <div class="col-xs-4"><b> number of people per location:</b></div>
+                            <div class="col-xs-8 checkbox">
+                                <label><input  type="checkbox" name="people_per_location" id="people_per_location"   />People Per Location</label>
+                            </div> 
+                        </div>
+
+                        <div class="form-group row people_per_location_hidden" style="display:none">
+                            <div class="col-xs-4"><label for="beneficiaries1">number of beneficiaries:</label></div>
+                            <div class="col-xs-4">
+                                <select class="form-control" id="male_beneficiaries1" name="wts">
+                                    <option disabled="disabled" selected="selected">Choose Male</option>
+                                    <option value="1-17"  >1-17</option>
+                                    <option value="18-30"  >18-30</option>
+                                    <option value="31-40"  >31-40</option>
+                                    <option value="41-50"  >41-50</option>
+                                    <option value="51-60"  >51-60</option>
+                                    <option value="61-70"  >61-70</option>
+                                    <option value="Above 70"  >Above 70</option>
+                                </select>
+                            </div> 
+                            <div class="col-xs-4">
+                                <select class="form-control" id="female_beneficiaries1" name="wts">
+                                    <option disabled="disabled" selected="selected">Choose Female</option>
+                                    <option value="1-17"  >1-17</option>
+                                    <option value="18-30"  >18-30</option>
+                                    <option value="31-40"  >31-40</option>
+                                    <option value="41-50"  >41-50</option>
+                                    <option value="51-60"  >51-60</option>
+                                    <option value="61-70"  >61-70</option>
+                                    <option value="Above 70"  >Above 70</option>
+                                </select>
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="average_quantity">average quantity per person of processed crop pre and post project:</label></div>
+                            <div class="col-xs-8">
+                                <input id="average_quantity"  name="f_name" type="text" class="form-control " >
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="benefitting_farmer1">Are groups formed by benefitting farmers:</label></div>
+                            <div class="col-xs-8 checkbox">
+                                <select class="form-control" id="benefitting_farmer1" name="wts">
+                                    <option  disabled="disabled" selected="selected">Choose Answer</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No"  >No</option>
+                                </select>
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><b>Membership:</b></div>
+                            <div class="col-xs-8 checkbox">
+                                <label><input  type="checkbox" name="membership1" id="membership1"   />Membership</label>
+                            </div> 
+                        </div>
+
+                        <div class="form-group row membership1_hidden" style="display:none">
+                            <div class="col-xs-4"><label for="beneficiaries1">Specify:</label></div>
+                            <div class="col-xs-4">
+                                <select class="form-control" id="male_membership1" name="wts">
+                                    <option disabled="disabled" selected="selected">Choose Male</option>
+                                    <option value="1-17"  >1-17</option>
+                                    <option value="18-30"  >18-30</option>
+                                    <option value="31-40"  >31-40</option>
+                                    <option value="41-50"  >41-50</option>
+                                    <option value="51-60"  >51-60</option>
+                                    <option value="61-70"  >61-70</option>
+                                    <option value="Above 70"  >Above 70</option>
+                                </select>
+                            </div> 
+                            <div class="col-xs-4">
+                                <select class="form-control" id="female_membership1" name="wts">
+                                    <option disabled="disabled" selected="selected">Choose Female</option>
+                                    <option value="1-17"  >1-17</option>
+                                    <option value="18-30"  >18-30</option>
+                                    <option value="31-40"  >31-40</option>
+                                    <option value="41-50"  >41-50</option>
+                                    <option value="51-60"  >51-60</option>
+                                    <option value="61-70"  >61-70</option>
+                                    <option value="Above 70"  >Above 70</option>
+                                </select>
+                            </div> 
+                        </div>
+
+
+                        <div class="form-group row">
+                            <div class="col-xs-12"><b>Benefits of Group Membership:</b></div>
+                            <div class="col-xs-4 checkbox" style="margin-top: -3.5px;">
+                                <label><input  type="checkbox" name="group_purchase1" id="group_purchase1"   />group purchase (access to inputs)</label>
+                            </div> 
+                            <div class="col-xs-4 checkbox">
+                                <label><input  type="checkbox" name="group_sales1" id="group_sales1"   />group sales (contract farming)</label>
+                            </div> 
+                            <div class="col-xs-4 checkbox">
+                                <label><input  type="checkbox" name="training_capacity1" id="training_capacity1"   />Training and capacity building</label>
+                            </div> 
+                        </div>
+
+
+                        <div class="form-group row training_capacity1_hidden" style="display:none">
+                            <div class="col-xs-4 checkbox" style="margin-top: -3.5px;">
+                                <label><input  type="checkbox" name="fbs1" id="fbs1"   />fbs</label>
+                            </div> 
+                            <div class="col-xs-4 checkbox">
+                                <label><input  type="checkbox" name="parboiling_techniques" id="parboiling_techniques"   />Parboiling techniques and economics</label>
+                            </div> 
+                            <div class="col-xs-4 checkbox">
+                                <label><input  type="checkbox" name="groundnut_oil" id="groundnut_oil"   />Groundnut oil processing and economics</label>
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="additional_comments">Provide any additional comments or other relevant information :</label></div>
+                            <div class="col-xs-8">
+                                <textarea id="additional_comments"  name="f_name" type="text" class="form-control" rows="8" value="" placeholder="e.g. Describe most common types of crop processed in location">
+                                </textarea>
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="market_linkages">type of market linkages established:</label></div>
+                            <div class="col-xs-8">
+                                <select class="form-control" id="market_linkages" name="wts">
+                                    <option  disabled="disabled" selected="selected">Choose Answer</option>
+                                    <option value="Contracts with Off-takers/aggregation centers"  >Contracts with Off-takers/aggregation centers</option>
+                                    <option value="Partnerships with processors"  >Partnerships with processors</option>
+                                </select>
+                            </div> 
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-4"><label for="access_to_finance">type of market linkages established:</label></div>
+                            <div class="col-xs-8">
+                                <select class="form-control" id="access_to_finance" name="wts">
+                                    <option  disabled="disabled" selected="selected">Choose Answer</option>
+                                    <option value="Financial institutions"  >Financial institutions</option>
+                                    <option value="Credit revolving scheme"  >Credit revolving scheme</option>
+                                </select>
+                            </div> 
+                        </div>
+
+                        <div colspan="7" class="row container col-xs-12">
+                            <button id="diagro_zero" type="button"   class='btn btn-large btn-info waves-effect indigo col-xs-12'>Submit</button>
+                            <!-- <a style="text-align:center;" onClick="alert('Coming soon.'); return false;" class=" col s12 waves-effect waves-teal btn-flat">More&#x25bd;</a> -->
+
+                        </div>
+
+
+                    </form>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                </div>
+            </div>  
+
+            <br/>
+            <br/>
+
+
+            <!-- <div class="circle"></div> -->
+            <!-- <div class="burger">
+                <div class="x"></div>
+                <div class="y"></div>
+                <div class="z"></div>
+            </div> -->
+            <h5 id="page_title" class="white-text">Agro Data</h5>
+            <div id="logoic"
+                 ></div>
+        </div>
+
+        <script type="text/javascript" src="js/cordova.js"></script>
+        <script src="scripts/vendor-3822e132e3.js"></script>
+        <script src="scripts/app-37dd468c2c.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+        <script type="text/javascript" src="js/index.js"></script>
+        
+        <script type="text/javascript" src="js/dynamiclga2.js"></script>
+
+        <script>
+                            function today() {
+                                var d = new Date();
+                                var date_string = d.getDate() + '/' + (d.getMonth() + 1) + '/' + d.getFullYear();
+                                return date_string;
+                            }
+                            $(document).ready(function () {
+                                $('#date').val(today());
+                                $('textarea').val('');
+                            });
+
+                            $("#chatNow").click(function () {
+                                //  window.location.href="./chat.html";
+                            });
+
+                            $("#down").click(function () {
+                                //alert("Insufficient Permission");
+                            });
+
+                            $('textearea').val('');
+
+                            if ('ontouchstart' in window) {
+                                var click = 'touchstart';
+                            } else {
+                                var click = 'click';
+                            }
+
+        </script>
+
+    </body>
+</html>

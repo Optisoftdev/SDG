@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html >
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <!-- <link rel="stylesheet" href="styles/vendor.css"> -->
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <!-- <link rel="stylesheet" type="text/css" href="css/brand.css"> -->
+        <link rel="stylesheet" type="text/css" href="styles/bootstrap-reboot.min.css">
+        <link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="styles/bootstrap-grid.min.css">
+        <!-- <script type="text/javascript" src="http://52.24.252.24:3000/socket.io/socket.io.js"></script> -->
+        <title>Hello World</title>
+        <style>
+            body{
+                background: url('img/innerbg.png') no-repeat fixed;
+                height: 100%;
+            }
+            
+            .parent {
+                height: 100%;
+            }
+            
+            .child {
+                margin: 12% 0 0 3%;
+            }
+        </style>
+    </head>
+    <body >
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>                        
+                    </button>
+                    <a class="navbar-image" href="#"><img src="img/pluslogo.png"/></a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="main.html">Home</a></li>
+                        <li><a href="agric.html" >No Poverty</a></li>
+                        <li><a href="zero_hunger.html">zero Hunger</a></li>
+                        <li><a href="hydro.html" >Clean Water & Sanitation</a></li>
+                        <li><a href="consumption_production.html">Responsible Consumption & Production</a></li>
+                        <li><a id="logout" href="#!">Logout</a></li></ul>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container" >
+
+            <div id="npv" class="row" style="background-color: rgba(255,255,255,0.8); padding: 15px;">
+
+                <div class="col-md-5 col-xs-4">
+                    <img class="img pulse" src="img/poverty-icon.png" height="100" width="100" />
+                </div>
+
+                <div class="parent col-md-5 col-xs-8">
+                    <div class="child">
+                        No Poverty
+                    </div>
+                </div>
+
+            </div>
+            
+            <div id="zhg" class="row" style="background-color: rgba(255,255,255,0.8); padding: 15px;">
+
+                <div class="col-md-5 col-xs-4">
+                    <img class="img" src="img/food-icon.png" height="100" width="100"/>
+                </div>
+
+                <div class="parent col-md-5 col-xs-8">
+                    <div class="child">
+                        Zero Hunger
+                    </div>
+                </div>
+
+            </div>
+            
+            <div id="cwt" class="row" style="background-color: rgba(255,255,255,0.8); padding: 15px;">
+
+                <div class="col-md-5 col-xs-4">
+                    <img  src="img/water-icon.png" class="img" height="100" width="100"/>
+                </div>
+
+                <div class="parent col-md-6 col-xs-8">
+                    <div class="child">
+                        Clean Water & Sanitation
+                    </div>
+                </div>
+
+            </div>
+            
+            <div id="rcp" class="row" style="background-color: rgba(255,255,255,0.8); padding: 15px;">
+
+                <div class="col-md-5 col-xs-4">
+                    <img  src="img/consumption-icon.png" class="img" height="100" width="100" />
+                </div>
+
+                <div class="parent col-md-6 col-xs-8">
+                    <div class="child">
+                        Responsible Consumption &amp; Production
+                    </div>
+                </div>
+
+            </div>
+
+            <!--
+            <ul class="list-group">
+                <li id="npv"  class="list-group-item">
+
+                    <span>No Poverty</span>
+                    <br/>
+                    <span>Poverty</span>
+                </li>
+
+                <li id="zhg" class="list-group-item">
+                    <img class="img" src="img/food-icon.png" height="100" width="100"/>
+                    <span>Zero Hunger</span>
+                    <br/>
+                    <span>Hunger</span>
+                </li>
+
+
+                <li id="cwt" class="list-group-item">
+                    <img  src="img/water-icon.png" class="img" height="100" width="100"/>
+                    <span>Clean Water & Sanitation</span>
+                </li>
+
+                <li id="rcp" class="list-group-item">
+                    <img  src="img/consumption-icon.png" class="img" height="100" width="100" />
+                    <span>Responsible Consumption &amp; Production</span>
+                    <br/>
+                    <span>Consumption &amp; Production</span>
+                </li>
+
+
+
+            </ul>
+-->
+
+            <!-- <div class="circle"></div> -->
+            <!-- <div class="menu">
+                <ul>
+        
+                    <li><a onClick="window.location.href='./about.html';" href="">About Us</a></li>
+                    <li><a onClick="window.location.href='./contact.html';" href="">Contact Us</a></li>
+                    <li><a id="logout" href="#!">Logout</a></li>
+                </ul>
+            </div> -->
+            <!-- <div class="burger">
+                <div class="x"></div>
+                <div class="y"></div>
+                <div class="z"></div>
+            </div> -->
+            <h5 id="page_title" class="white-text">Hydro-Agro</h5>
+            <div id="logoic"
+                 ></div>
+        </div>
+
+        <script type="text/javascript" src="js/cordova.js"></script>
+        <script src="js/jquery.js"></script>
+        <script src="scripts/vendor-3822e132e3.js"></script>
+        <script src="scripts/app-37dd468c2c.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+        <script type="text/javascript" src="js/index.js"></script>
+
+
+        <script>
+
+            $("#npv").click(function () {
+                window.location.href = "./agric.html";
+            });
+            $("#zhg").click(function () {
+                window.location.href = "./zero_hunger.html";
+            });
+
+            $("#rcp").click(function () {
+                window.location.href = "./consumption_production.html";
+            });
+
+            $("#cwt").click(function () {
+                window.location.href = "./hydro.html";
+            });
+
+            $("#down").click(function () {
+                //alert("Insufficient Permission");
+            });
+
+
+
+            if ('ontouchstart' in window) {
+                var click = 'touchstart';
+            } else {
+                var click = 'click';
+            }
+
+
+            // $('div.burger').on(click, function(){
+
+            //     if( !$(this).hasClass('open') ){ openMenu(); }
+            //     else { closeMenu(); }
+
+            // });
+
+
+            // $('div.menu ul li a').on(click, function(e){
+            //     e.preventDefault();
+            //     closeMenu();
+            // });
+
+
+            // function openMenu(){
+
+            //     $('div.circle').addClass('expand');
+
+            //     $('div.burger').addClass('open');
+            //     $('div.x, div.y, div.z').addClass('collapse');
+            //     $('.menu li').addClass('animate');
+
+            //     setTimeout(function(){
+            //         $('div.y').hide();
+            //         $('div.x').addClass('rotate30');
+            //         $('div.z').addClass('rotate150');
+            //     }, 70);
+            //     setTimeout(function(){
+            //         $('div.x').addClass('rotate45');
+            //         $('div.z').addClass('rotate135');
+            //     }, 120);
+
+
+
+            // }
+
+            // function closeMenu(){
+
+            //     $('div.burger').removeClass('open');
+            //     $('div.x').removeClass('rotate45').addClass('rotate30');
+            //     $('div.z').removeClass('rotate135').addClass('rotate150');
+            //     $('div.circle').removeClass('expand');
+            //     $('.menu li').removeClass('animate');
+
+            //     setTimeout(function(){
+            //         $('div.x').removeClass('rotate30');
+            //         $('div.z').removeClass('rotate150');
+            //     }, 50);
+            //     setTimeout(function(){
+            //         $('div.y').show();
+            //         $('div.x, div.y, div.z').removeClass('collapse');
+            //     }, 70);
+
+            // }
+        </script>
+
+    </body>
+</html>

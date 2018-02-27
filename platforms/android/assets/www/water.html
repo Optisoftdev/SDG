@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html >
+<head>
+    <!--
+    Customize this policy to fit your own app's needs. For more guidance, see:
+        https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+    Some notes:
+        * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+        * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+        * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+            * Enable inline JS: add 'unsafe-inline' to default-src
+    -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link
+            rel="stylesheet" href="styles/vendor.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/brand.css">
+    <script type="text/javascript" src="http://52.24.252.24:3000/socket.io/socket.io.js"></script>
+    <title>Hello World</title>
+    <style>
+        label strong{
+            text-transform:lowercase !important;
+            font-size:12px;
+        }
+    </style>
+</head>
+<body >
+
+<div class="screen" >
+
+    <div class="navbar"></div>
+    <div style="margin-left:1px;" class="bodyContent container">
+        <table id="diagnosis" class="col s12 w">
+
+            <tr  >
+                <th colspan="3">Name of survey</th>
+                <td colspan="4" class="input-field">
+                    <input id="nof" name="nof" type="text" class="validate " >
+
+                </td> </tr>
+
+            <tr>
+                <th colspan="3">Water Source</th>
+                <td class="input-field" colspan="4">
+
+
+                    <select class="browser-default" id="wts" name="wts">
+                        <option value="" disabled="disabled" selected="selected">Choose Source</option>
+                        <option value="well"  >Well</option>
+                        <option value="tap"  >Tap</option>
+                        <option value="borehole"  >Borehole</option>
+                        <option value="stream"  >Stream</option>
+                        <option value="others"  >Others</option>
+
+                    </select>
+                </td>
+
+
+            </tr>
+
+
+            <tr id="wts_others" style="display:none;" >
+                <th colspan="3">Specify Water Source</th>
+                <td colspan="4" class="input-field">
+                    <input id="wts_others_val" name="wts_others_val" type="text" class="validate " >
+
+                </td> </tr>
+
+            <tr><th colspan="2" >Active (was water  flowing?) </th><td colspan="5" class="center">
+
+                <input  type="checkbox" name="wtsf" value="Yes" type="checkbox" id="wtsf" name="check"  />
+                <label for="wtsf"><strong>Click if Yes.</strong></label>
+
+
+
+            </td></tr>
+
+            <tr><th colspan="2" >Was any rehabilitation done.</th><td colspan="5" class="center">
+
+                <input  type="checkbox" name="rehb" value="Yes" type="checkbox" id="rehb" name="check"  />
+                <label for="rehb"><strong>Click if Yes.</strong></label>
+
+
+
+            </td></tr>
+
+            <tr class="wts_dep"  id="wts_name" style="display:none;" >
+                <th colspan="3">Water Source Name</th>
+                <td colspan="4" class="input-field">
+                    <input id="wts_name_val" name="wts_name_val" type="text" class="validate " >
+
+                </td> </tr>
+
+            <tr class="wts_dep" id="wts_yield" style="display:none;" >
+                <th colspan="3">Water Yield</th>
+                <td colspan="4" class="input-field">
+                    <select  class="browser-default" id="wts_yield_val" name="wts_yield_val">
+                        <option value="" disabled="disabled" selected="selected">Litres per day</option>
+                        <option value="1"  >1</option>
+                        <option value="2"  >2</option>
+                        <option value="3"  >3</option>
+                        <option value="4"  >4</option>
+                        <option value="5"  >5</option>
+                        <option value="6"  >6</option>
+                        <option value="7"  >7</option>
+                        <option value="8"  >8</option>
+                        <option value="9"  >9</option>
+                        <option value="10"  >10</option>
+                        <option value="11"  >11</option>
+                        <option value="12"  >12</option>
+                        <option value="13"  >13</option>
+                        <option value="14"  >14</option>
+                        <option value="15"  >15</option>
+                        <option value="16"  >16</option>
+                        <option value="17"  >17</option>
+                        <option value="18"  >18</option>
+                        <option value="19"  >19</option>
+                        <option value="20"  >20</option>
+                        <option value="21"  >21</option>
+                        <option value="22"  >22</option>
+                        <option value="23"  >23</option>
+                        <option value="24"  >24</option>
+                        <option value="25"  >25</option>
+                        <option value="26"  >26</option>
+                        <option value="27"  >27</option>
+                        <option value="28"  >28</option>
+                        <option value="29"  >29</option>
+                        <option value="30"  >30</option>
+                        <option value="31"  >31</option>
+                        <option value="32"  >32</option>
+                        <option value="33"  >33</option>
+                        <option value="34"  >34</option>
+                        <option value="35"  >35</option>
+                        <option value="36"  >36</option>
+                        <option value="37"  >37</option>
+                        <option value="38"  >38</option>
+                        <option value="39"  >39</option>
+                        <option value="40"  >40</option>
+                        <option value="41"  >41</option>
+                        <option value="42"  >42</option>
+                        <option value="43"  >43</option>
+                        <option value="44"  >44</option>
+                        <option value="45"  >45</option>
+                        <option value="46"  >46</option>
+                        <option value="47"  >47</option>
+                        <option value="48"  >48</option>
+                        <option value="49"  >49</option>
+                        <option value="50"  >50</option>
+                        <option value="51"  >51</option>
+                        <option value="52"  >52</option>
+                        <option value="53"  >53</option>
+                        <option value="54"  >54</option>
+                        <option value="55"  >55</option>
+                        <option value="56"  >56</option>
+                        <option value="57"  >57</option>
+                        <option value="58"  >58</option>
+                        <option value="59"  >59</option>
+                        <option value="60"  >60</option>
+                        <option value="61"  >61</option>
+                        <option value="62"  >62</option>
+                        <option value="63"  >63</option>
+                        <option value="64"  >64</option>
+                        <option value="65"  >65</option>
+                        <option value="66"  >66</option>
+                        <option value="67"  >67</option>
+                        <option value="68"  >68</option>
+                        <option value="69"  >69</option>
+                        <option value="70"  >70</option>
+                        <option value="71"  >71</option>
+                        <option value="72"  >72</option>
+                        <option value="73"  >73</option>
+                        <option value="74"  >74</option>
+                        <option value="75"  >75</option>
+                        <option value="76"  >76</option>
+                        <option value="77"  >77</option>
+                        <option value="78"  >78</option>
+                        <option value="79"  >79</option>
+                        <option value="80"  >80</option>
+                        <option value="81"  >81</option>
+                        <option value="82"  >82</option>
+                        <option value="83"  >83</option>
+                        <option value="84"  >84</option>
+                        <option value="85"  >85</option>
+                        <option value="86"  >86</option>
+                        <option value="87"  >87</option>
+                        <option value="88"  >88</option>
+                        <option value="89"  >89</option>
+                        <option value="90"  >90</option>
+                        <option value="91"  >91</option>
+                        <option value="92"  >92</option>
+                        <option value="93"  >93</option>
+                        <option value="94"  >94</option>
+                        <option value="95"  >95</option>
+                        <option value="96"  >96</option>
+                        <option value="97"  >97</option>
+                        <option value="98"  >98</option>
+                        <option value="99"  >99</option>
+                        <option value="100"  >100</option>
+
+                    </select>
+                </td> </tr>
+
+            <tr class="wts_dep" style="display:none;">
+                <th colspan="3">Direct Beneficiaries</th>
+                <td class="input-field" colspan="4">
+    <select class="browser-default" id="wts_dbf" name="wts_dbf">
+
+            <option value="" disabled="disabled" selected="selected">How many?</option>
+            <option value="1"  >1</option>
+            <option value="2"  >2</option>
+            <option value="3"  >3</option>
+            <option value="4"  >4</option>
+            <option value="5"  >5</option>
+            <option value="6"  >6</option>
+            <option value="7"  >7</option>
+            <option value="8"  >8</option>
+            <option value="9"  >9</option>
+            <option value="10"  >10</option>
+            <option value="11"  >11</option>
+            <option value="12"  >12</option>
+            <option value="13"  >13</option>
+            <option value="14"  >14</option>
+            <option value="15"  >15</option>
+            <option value="16"  >16</option>
+            <option value="17"  >17</option>
+            <option value="18"  >18</option>
+            <option value="19"  >19</option>
+            <option value="20"  >20</option>
+            <option value="21"  >21</option>
+            <option value="22"  >22</option>
+            <option value="23"  >23</option>
+            <option value="24"  >24</option>
+            <option value="25"  >25</option>
+            <option value="26"  >26</option>
+            <option value="27"  >27</option>
+            <option value="28"  >28</option>
+            <option value="29"  >29</option>
+            <option value="30"  >30</option>
+            <option value="31"  >31</option>
+            <option value="32"  >32</option>
+            <option value="33"  >33</option>
+            <option value="34"  >34</option>
+            <option value="35"  >35</option>
+            <option value="36"  >36</option>
+            <option value="37"  >37</option>
+            <option value="38"  >38</option>
+            <option value="39"  >39</option>
+            <option value="40"  >40</option>
+            <option value="41"  >41</option>
+            <option value="42"  >42</option>
+            <option value="43"  >43</option>
+            <option value="44"  >44</option>
+            <option value="45"  >45</option>
+            <option value="46"  >46</option>
+            <option value="47"  >47</option>
+            <option value="48"  >48</option>
+            <option value="49"  >49</option>
+            <option value="50"  >50</option>
+            <option value="51"  >51</option>
+            <option value="52"  >52</option>
+            <option value="53"  >53</option>
+            <option value="54"  >54</option>
+            <option value="55"  >55</option>
+            <option value="56"  >56</option>
+            <option value="57"  >57</option>
+            <option value="58"  >58</option>
+            <option value="59"  >59</option>
+            <option value="60"  >60</option>
+        </select>
+                </td></tr>
+
+            <tr class="wts_dep" ><th colspan="2" >Access to Source </th><td colspan="5" class="center">
+                <select class="browser-default" name="wts_access" id="wts_access">
+                    <option value="" disabled="disabled" selected="selected">Accessibility</option>
+                    <option value="restricted">Restricted</option>
+                    <option value="unrestricted">Unrestricted</option>
+                </select>
+            </td></tr>
+
+
+            <tr   >
+                <th colspan="3">Name of Watershed</th>
+                <td colspan="4" class="input-field">
+                    <input id="wtsh" name="wtsh" type="text" class="validate " >
+
+                </td> </tr>
+
+            <tr   >
+                <th colspan="3">Name of Water Surface Body</th>
+                <td colspan="4" class="input-field">
+                    <input id="wtsb" name="wtsb" type="text" class="validate " >
+
+                </td> </tr>
+
+            <tr   >
+                <th colspan="3">LGA</th>
+                <td colspan="4" class="input-field">
+                    <input id="lga" name="lga" type="text" class="validate  city-auto" >
+                </td> </tr>
+
+            <tr>
+                <th colspan="3">Constructed Latrines</th>
+                <td class="input-field" colspan="4">
+                    <select class="browser-default" id="ctl" name="ctl">
+
+                        <option value="" disabled="disabled" selected="selected">How many?</option>
+                        <option value="1"  >1</option>
+                        <option value="2"  >2</option>
+                        <option value="3"  >3</option>
+                        <option value="4"  >4</option>
+                        <option value="5"  >5</option>
+                        <option value="6"  >6</option>
+                        <option value="7"  >7</option>
+                        <option value="8"  >8</option>
+                        <option value="9"  >9</option>
+                        <option value="10"  >10</option>
+                        <option value="11"  >11</option>
+                        <option value="12"  >12</option>
+                        <option value="13"  >13</option>
+                        <option value="14"  >14</option>
+                        <option value="15"  >15</option>
+                        <option value="16"  >16</option>
+                        <option value="17"  >17</option>
+                        <option value="18"  >18</option>
+                        <option value="19"  >19</option>
+                        <option value="20"  >20</option>
+                        <option value="21"  >21</option>
+                        <option value="22"  >22</option>
+                        <option value="23"  >23</option>
+                        <option value="24"  >24</option>
+                        <option value="25"  >25</option>
+                        <option value="26"  >26</option>
+                        <option value="27"  >27</option>
+                        <option value="28"  >28</option>
+                        <option value="29"  >29</option>
+                        <option value="30"  >30</option>
+                        <option value="31"  >31</option>
+                        <option value="32"  >32</option>
+                        <option value="33"  >33</option>
+                        <option value="34"  >34</option>
+                        <option value="35"  >35</option>
+                        <option value="36"  >36</option>
+                        <option value="37"  >37</option>
+                        <option value="38"  >38</option>
+                        <option value="39"  >39</option>
+                        <option value="40"  >40</option>
+                        <option value="41"  >41</option>
+                        <option value="42"  >42</option>
+                        <option value="43"  >43</option>
+                        <option value="44"  >44</option>
+                        <option value="45"  >45</option>
+                        <option value="46"  >46</option>
+                        <option value="47"  >47</option>
+                        <option value="48"  >48</option>
+                        <option value="49"  >49</option>
+                        <option value="50"  >50</option>
+                        <option value="51"  >51</option>
+                        <option value="52"  >52</option>
+                        <option value="53"  >53</option>
+                        <option value="54"  >54</option>
+                        <option value="55"  >55</option>
+                        <option value="56"  >56</option>
+                        <option value="57"  >57</option>
+                        <option value="58"  >58</option>
+                        <option value="59"  >59</option>
+                        <option value="60"  >60</option>
+                    </select>
+                </td></tr>
+            <tr><th colspan="2" >Water Bore Disease</th><td colspan="5" class="center">
+
+                <input  type="checkbox" name="wtbds" value="Yes" type="checkbox" id="wtbds" name="check"  />
+                <label for="wtbds"><strong>Click if present.</strong></label>
+
+
+
+            </td></tr>
+            <tr id="wtbd_s" style="display:none;">
+                <th colspan="3">Specify Water Bore Disease</th>
+                <td class="input-field" colspan="4">
+
+
+                    <select class="browser-default" id="wtbd" name="wtbd">
+                        <option value="Waterborne disease- unspecified (Waterborne diseases) (Water-related diseases)" >Waterborne disease- unspecified (Waterborne diseases) (Water-related diseases)
+                        </option>
+                        <option value="Water-related disease- unspecified (Waterborne diseases) (Water-related diseases)" >Water-related disease- unspecified (Waterborne diseases) (Water-related diseases)
+                        </option>
+                        <option value="Amoebiasis- unspecified (Amoebiasis) (Intestinal infectious disease) (Waterborne diseases) (Water-related diseases)" >Amoebiasis- unspecified (Amoebiasis) (Intestinal infectious disease) (Waterborne diseases) (Water-related diseases)
+                        </option>
+                        <option value="Acute amoebic dysentery (Amoebiasis) (Intestinal infectious disease) (Waterborne diseases) (Water-related diseases)" >Acute amoebic dysentery (Amoebiasis) (Intestinal infectious disease) (Waterborne diseases) (Water-related diseases)
+                        </option>
+                        <option value="Chronic intestinal amoebiasis (Amoebiasis) (Intestinal infectious disease) (Waterborne diseases) (Water-related diseases)" >Chronic intestinal amoebiasis (Amoebiasis) (Intestinal infectious disease) (Waterborne diseases) (Water-related diseases)
+                        </option>
+                        <option value="Amoebic nondysenteric colitis (Amoebiasis) (Intestinal infectious disease) (Waterborne diseases) (Water-related diseases)" >Amoebic nondysenteric colitis (Amoebiasis) (Intestinal infectious disease) (Waterborne diseases) (Water-related diseases)
+                        </option>
+                        <option value="Amoeboma of intestine (Amoebiasis) (Intestinal infectious disease) (Waterborne diseases) (Water-related diseases)" >Amoeboma of intestine (Amoebiasis) (Intestinal infectious disease) (Waterborne diseases) (Water-related diseases)
+                        </option>
+                        <option value="Amoebic liver abscess (Amoebiasis) (Intestinal infectious disease) (Waterborne diseases) (Water-related diseases)" >Amoebic liver abscess (Amoebiasis) (Intestinal infectious disease) (Waterborne diseases) (Water-related diseases)
+                        </option>
+                        <option value="Amoebic lung abscess (Amoebiasis) (Intestinal infectious disease) (Waterborne diseases) (Water-related diseases)" >Amoebic lung abscess (Amoebiasis) (Intestinal infectious disease) (Waterborne diseases) (Water-related diseases)
+                        </option>
+                        <option value="Amoebic brain abscess (Amoebiasis) (Intestinal infectious disease) (Waterborne diseases) (Water-related diseases)" >Amoebic brain abscess (Amoebiasis) (Intestinal infectious disease) (Waterborne diseases) (Water-related diseases)
+                        </option>
+                        <option value="Cutaneous amoebiasis (Amoebiasis) (Intestinal infectious disease) (Waterborne diseases) (Water-related diseases)" >Cutaneous amoebiasis (Amoebiasis) (Intestinal infectious disease) (Waterborne diseases) (Water-related diseases)
+                        </option>
+                        <option value="Cryptosporidiosis- unspecified (Protozoal intestinal disease) (Intestinal infectious disease) (Waterborne diseases) (Water-related diseases)" >Cryptosporidiosis- unspecified (Protozoal intestinal disease) (Intestinal infectious disease) (Waterborne diseases) (Water-related diseases)
+                        </option>
+                        <option value="Cyclosporiasis- unspecified (Intestinal infectious disease) (Waterborne diseases) (Water-related diseases)" >Cyclosporiasis- unspecified (Intestinal infectious disease) (Waterborne diseases) (Water-related diseases)
+                        </option>
+                        <option value="Tyhoid fever (Typhoid and Paratyphoid fever) (Intestinal infectious disease) (Waterborne diseases) (Water-related diseases)" >Tyhoid fever (Typhoid and Paratyphoid fever) (Intestinal infectious disease) (Waterborne diseases) (Water-related diseases)
+                        </option>
+                        <option value="Salmonella infection/Salmonelosis- unspecified (Salmonella infection/Salmonelosis) (Intestinal infectious disease) (Waterborne diseases) (Water-related diseases)" >Salmonella infection/Salmonelosis- unspecified (Salmonella infection/Salmonelosis) (Intestinal infectious disease) (Waterborne diseases) (Water-related diseases)
+                        </option>
+                        <option value="Salmonella enteritis (Salmonella infection/Salmonelosis) (Intestinal infectious disease) (Waterborne diseases) (Water-related diseases)" >Salmonella enteritis (Salmonella infection/Salmonelosis) (Intestinal infectious disease) (Waterborne diseases) (Water-related diseases)
+                        </option>
+                        <option value="Salmonella sepsis (Salmonella infection/Salmonelosis) (Intestinal infectious disease) (Waterborne diseases) (Water-related diseases)" >Salmonella sepsis (Salmonella infection/Salmonelosis) (Intestinal infectious disease) (Waterborne diseases) (Water-related diseases)
+                        </option>
+                        <option value="Localized salmonella infections (Salmonella infection/Salmonelosis) (Intestinal infectious disease) (Waterborne diseases) (Water-related diseases)" >Localized salmonella infections (Salmonella infection/Salmonelosis) (Intestinal infectious disease) (Waterborne diseases) (Water-related diseases)
+                        </option>
+                        <option value="Vibrio Illness (Waterborne diseases) (Water-related diseases)" >Vibrio Illness (Waterborne diseases) (Water-related diseases)
+                        </option>
+                        <option value="Severe Acute Respiratory Syndrome/SARS (Waterborne diseases) (Water-related diseases)" >Severe Acute Respiratory Syndrome/SARS (Waterborne diseases) (Water-related diseases)
+                        </option>
+                        <option value="Hepatitis A with hepatic coma (Hepatitis A) (Hepatitis) (Waterborne diseases) (Water-related diseases)" >Hepatitis A with hepatic coma (Hepatitis A) (Hepatitis) (Waterborne diseases) (Water-related diseases)
+                        </option>
+                        <option value="Hepatitis A without hepatic coma (Hepatitis A) (Hepatitis) (Waterborne diseases) (Water-related diseases)" >Hepatitis A without hepatic coma (Hepatitis A) (Hepatitis) (Waterborne diseases) (Water-related diseases)
+                        </option>
+                        <option value="Acute poliomyelitis/Polio- unspecified (Waterborne diseases) (Water-related diseases)" >Acute poliomyelitis/Polio- unspecified (Waterborne diseases) (Water-related diseases)
+                        </option>
+                        <option value="Polyomavirus infection (Waterborne diseases) (Water-related diseases)" >Polyomavirus infection (Waterborne diseases) (Water-related diseases)
+                        </option>
+                        <option value="Desmodesmus infection (Waterborne diseases) (Water-related diseases)" >Desmodesmus infection (Waterborne diseases) (Water-related diseases)
+                        </option>
+
+
+                    </select>
+                </td>
+
+
+            </tr>
+
+
+
+
+
+            <tr>
+                <th colspan="7" class="row">
+                    <button id="diahydro"   class='col s12 btn btn-large waves-effect indigo'>Submit</button>
+                    <a style="text-align:center;" onClick="alert('Coming soon.'); return false;" class=" col s12 waves-effect waves-teal btn-flat">More&#x25bd;</a>
+
+                </th>
+            </tr>
+
+        </table>
+
+
+    </div>
+
+
+    <div class="circle"></div>
+    <div class="menu">
+        <ul>
+            <li><a href="">Our Partners</a></li>
+            <li><a href="">Settings</a></li>
+            <li><a href="">About Us</a></li>
+            <li><a href="">Contact Us</a></li>
+            <li><a id="logout" href="#!">Logout</a></li>
+        </ul>
+    </div>
+    <div class="burger">
+        <div class="x"></div>
+        <div class="y"></div>
+        <div class="z"></div>
+    </div>
+    <h5 id="page_title" class="white-text">Hydro Data</h5>
+    <div id="logoic"
+    ></div>
+</div>
+
+<script type="text/javascript" src="js/cordova.js"></script>
+<script src="scripts/vendor-3822e132e3.js"></script>
+<script src="scripts/app-37dd468c2c.js"></script>
+
+<script type="text/javascript" src="js/index.js"></script>
+
+
+<script>
+
+    $("#chatNow").click(function(){
+        //  window.location.href="./chat.html";
+    });
+
+    $("#down").click(function(){
+        //alert("Insufficient Permission");
+    });
+
+
+
+    if( 'ontouchstart' in window ){ var click = 'touchstart'; }
+    else { var click = 'click'; }
+
+
+    $('div.burger').on(click, function(){
+
+        if( !$(this).hasClass('open') ){ openMenu(); }
+        else { closeMenu(); }
+
+    });
+
+
+    $('div.menu ul li a').on(click, function(e){
+        e.preventDefault();
+        closeMenu();
+    });
+
+
+    function openMenu(){
+
+        $('div.circle').addClass('expand');
+
+        $('div.burger').addClass('open');
+        $('div.x, div.y, div.z').addClass('collapse');
+        $('.menu li').addClass('animate');
+
+        setTimeout(function(){
+            $('div.y').hide();
+            $('div.x').addClass('rotate30');
+            $('div.z').addClass('rotate150');
+        }, 70);
+        setTimeout(function(){
+            $('div.x').addClass('rotate45');
+            $('div.z').addClass('rotate135');
+        }, 120);
+
+
+
+    }
+
+    function closeMenu(){
+
+        $('div.burger').removeClass('open');
+        $('div.x').removeClass('rotate45').addClass('rotate30');
+        $('div.z').removeClass('rotate135').addClass('rotate150');
+        $('div.circle').removeClass('expand');
+        $('.menu li').removeClass('animate');
+
+        setTimeout(function(){
+            $('div.x').removeClass('rotate30');
+            $('div.z').removeClass('rotate150');
+        }, 50);
+        setTimeout(function(){
+            $('div.y').show();
+            $('div.x, div.y, div.z').removeClass('collapse');
+        }, 70);
+
+    }
+</script>
+
+</body>
+</html>

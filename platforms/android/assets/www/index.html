@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" href="styles/vendor.css"><link rel="stylesheet" href="styles/app.css">
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+
+        <style type = "text/css">
+            html, body {
+                height: 100%;
+                padding: 0;
+                margin: 0;
+            }
+            
+             ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+                color: #fff;
+                font-weight: 400;
+                font-size: 15px;
+            }
+
+            :-ms-input-placeholder { /* Internet Explorer 10-11 */
+                color: #fff;
+                font-weight: 400;
+                font-size: 15px;
+            }
+
+            ::-ms-input-placeholder { /* Microsoft Edge */
+                color: #fff;
+                font-weight: 400;
+                font-size: 15px;
+            }
+            input[type=text], input[type=password], input[type=email] {
+                color: #fff;
+                font-weight: 300;
+                font-size: 14px;
+                padding: 4px;
+            }
+            
+        </style>
+        <title>5Facts</title>
+
+    </head>
+    <body style="background-color: rgba(0,0,56,1);">
+
+
+        <div class="screen container-fluid" style="height: 100%; padding: 0; margin: 0;">
+
+            <div style="height: 35%; width: 100%;">
+                
+                <img src="./img/bgg2.png" alt="logo" style="width: 100%; height: auto;"/>
+                
+            </div>
+
+            <div style="height: 65%; width: 100%; background-color: rgba(0,0,56,1); padding: 40px 15px 15px;">
+
+                <center>
+
+
+                    <div class="container" style="padding-top: 15%;">
+                        <div class="row">
+                            <div style="display:none;" id="logg" class="preloader-wrapper small active">
+                                
+                                <div class="spinner-layer spinner-blue-only">
+                                    <div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div></div><div
+                                        class="circle-clipper right"><div class="circle"></div></div>
+                                    
+                                </div>
+                                            
+                            </div>
+                        </div>
+                        
+
+
+                            <div class="row col-md-12 col-xs-12">
+                                
+                                    <input class="form-control validate" type="email" name="email" id="usern" placeholder="Enter your email" />
+                                
+                            </div>
+
+                            <div class="row col-md-12 col-xs-12">
+                                
+                                    <input class='form-control validate' type='password' name='password' id='pass' placeholder="Enter your password" />
+                                
+                            </div>
+
+                            <br />
+                            <center>
+                                <div class="row">
+                                    <a  id="regme" name='btn_reg' href = "signup.html"  class='col-md-6 col-xs-6 btn btn-primary'>Signup</a> <button  id="logme" name='btn_login'  class='col-md-6 col-xs-6 btn btn-primary'>Login</button>
+                                </div>
+                            </center>
+                       
+
+                    </div>
+
+                </center>
+
+            </div>
+
+        </div>
+
+
+        <script src="js/jquery.js"></script>
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="js/bootstrap.min.js"></script>
+
+
+        <script type="text/javascript" src="js/cordova.js"></script>
+        <script
+        src="scripts/vendor-3822e132e3.js"></script><script src="scripts/app-37dd468c2c.js"></script>
+
+    </body>
+</html>
